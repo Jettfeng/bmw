@@ -1,28 +1,28 @@
 <div class="uk-background-muted uk-panel" style="background-color: #dedfe4; background-size:cover;  height: 100vh;background-repeat: no-repeat; background-position: center right; "  data-src="assets/images/bglogin.jpg" uk-img>
    
   
-  <div class="uk-position-large uk-position-center uk-overlay ">
-      <div class="uk-position-large  uk-margin-xlarge-bottom">
-      <h3 class="uk-card-title uk-text-center">{{'appname' |translate}}</h3>
+  <div class="uk-position-large uk-position-center uk-overlay  uk-overlay-new">
+      <div class="uk-position-large  uk-margin-xlarge-bottom uk-position-large-new">
+      <h3 class="uk-card-title uk-text-center uk-card-title-new">{{'appname' |translate}}</h3>
        
       </div>
     <div class="uk-card   uk-card-default uk-card-body uk-width-1-1  uk-border-rounded  uk-margin-remove " style="opacity:0.9;">
        
         <div class="uk-margin-bottom"></div>
-        <div class="uk-margin uk-width-1-1 uk-grid  uk-margin-remove  "    >
-            <label  class="   uk-width-2-5   uk-text uk-text-left uk-padding-remove uk-margin-remove">{{'username' |translate}}</label>
-            <input class="uk-input  uk-width-3-5  uk-fb-input"    name="username"  type="text"   [(ngModel)]="form.username" (keyup.enter)="login()">
+        <div class="uk-margin uk-width-1-1 uk-grid uk-grid-new uk-margin-remove  "    >
+            <label  class="uk-width-2-5  uk-width-2-5-new uk-text uk-text-left uk-padding-remove uk-margin-remove">{{'username' |translate}}</label>
+            <input class="uk-input uk-input-new  uk-width-3-5  uk-fb-input"    name="username"  type="text"   [(ngModel)]="form.username" (keyup.enter)="login()">
             
         </div>
-        <div class="uk-margin-xlarge-bottom"></div>
-        <div class="uk-margin uk-width-1-1 uk-grid  uk-margin-remove "   >
-            <label  class="   uk-width-2-5   uk-text-left   uk-padding-remove uk-margin-remove">{{'password' |translate}}</label>
-            <input class="uk-input  uk-width-3-5  uk-fb-input"   name="password"  type="text"   [(ngModel)]="form.password" (keyup.enter)="login()">
+        <div class="uk-margin-xlarge-bottom uk-margin-xlarge-bottom-new"></div>
+        <div class="uk-margin uk-width-1-1 uk-grid uk-grid-new uk-margin-remove "   >
+            <label  class="uk-width-2-5 uk-width-2-5-new  uk-text-left   uk-padding-remove uk-margin-remove">{{'password' |translate}}</label>
+            <input class="uk-input uk-input-new uk-width-3-5  uk-fb-input"   name="password"  type="text"   [(ngModel)]="form.password" (keyup.enter)="login()">
             
         </div>
         <div class="uk-margin-large-bottom"></div>
         <div class="uk-margin-top uk-text-center ">
-        <button (click)="changeLang()" class="uk-button uk-button-link">{{ changemessage }}</button>
+        <button (click)="changeLang()" class="uk-button uk-button-new uk-button-link">{{ changemessage }}</button>
       </div>
     
   
@@ -49,8 +49,8 @@
     </div>
     <div class="uk-margin-large-bottom"></div>
     
-    <div class="uk-margin">
-        <button class="uk-button uk-button-primary uk-width-1-1" (click)="login()" style="background-color: #4259a9;">
+    <div class="uk-margin login-btn">
+        <button class="uk-button login-btn-inner uk-button-primary uk-width-1-1" (click)="login()" style="background-color: #4259a9;">
           {{'login'|translate}}
         </button>
   
