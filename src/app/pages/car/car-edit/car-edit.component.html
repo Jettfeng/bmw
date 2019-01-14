@@ -1,0 +1,59 @@
+<app-header>
+</app-header>
+<div class="uk-container">
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo">{{'car'|translate}} {{'edit'|translate}}</a>
+        </div>
+        <div class="uk-navbar-right">
+        </div>
+    </nav>
+    <form class="uk-form-stacked">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="licensePlate">*{{'license plate'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="licensePlate" id="licensePlate" type="text" [(ngModel)]="car.license_plate">
+            </div>
+        </div>
+        <!-- <div class="uk-margin">
+            <label class="uk-form-label" for="brand">*{{'brand'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="brand" id="brand" type="text" [(ngModel)]="car.brand">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="model">*{{'model'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="model" id="model" type="text" [(ngModel)]="car.model">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="color">*{{'color'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="color" id="color" type="text" [(ngModel)]="car.color">
+            </div>
+        </div> -->
+        <div class="uk-margin">
+            <label class="uk-form-label" for="beacont">*{{'beacon'|translate}}{{'name'|translate}}</label>
+            <div class="uk-form-controls">
+                <!--
+                <input class="uk-input" name="beaconId" id="beacon" type="text" [(ngModel)]="car.beacon_name">
+                -->
+				<select class="uk-select"  id="beacon" [(ngModel)]="car.beacon_name">
+                        <option *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
+                    </select>
+                </div>
+        </div>
+    </form>
+    <div class="uk-container uk-text-right uk-margin-large-bottom">
+        <button class="uk-button uk-button-default uk-border-rounded" (click)="editCar()">{{'edit'|translate}}</button>
+        <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelCar()">{{'cancel'|translate}}</button>
+    </div>
+
+</div>
+
+<app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
+
+<div class="loading" *ngIf="loading">
+    <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+</div>

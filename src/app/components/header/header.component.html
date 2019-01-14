@@ -1,0 +1,27 @@
+<nav class="uk-navbar-container uk-margin" style="padding-top:1em;" uk-navbar>
+  <div class="uk-navbar-left">
+    <div class="uk-navbar-item" *ngIf="button.back">
+      <a class="uk-button uk-button-default uk-button-small uk-border-rounded" (click)="onClick('back')"><span uk-icon="chevron-left"></span>{{'back'|translate}}</a>
+    </div>
+    <!-- <div class="uk-navbar-item" *ngIf="role.admin">
+      <a class="uk-button uk-button-default uk-border-rounded"  routerLink="/dealer/list">{{'dealer'|translate}}</a>
+    </div>
+    <div class="uk-navbar-item" *ngIf="role.supervisor">
+      <a class="uk-button uk-button-default uk-border-rounded" routerLink="/user/list">{{'user'|translate}}</a>
+    </div>
+    <div class="uk-navbar-item" *ngIf="role.supervisor">
+      <a class="uk-button uk-button-default uk-border-rounded" routerLink="/dashboard/car">{{'dashboard'|translate}}</a>
+    </div> -->
+  </div>
+  <div class="uk-navbar-right">
+<!--    <div class="uk-navbar-item">
+        <div>{{'username'|translate}}: {{account.username}}</div>
+    </div>
+    <div class="uk-navbar-item">
+        <div>{{'position'|translate}}: {{account.role}}</div>
+    </div>-->
+    <div class="uk-navbar-item">
+      <a class="uk-button uk-button-default uk-button-small uk-border-rounded"  (click)="onClick('logout'); logout();">{{'logout'|translate}}</a>
+    </div>
+  </div>
+</nav>

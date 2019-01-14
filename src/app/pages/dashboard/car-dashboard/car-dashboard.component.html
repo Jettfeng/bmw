@@ -1,0 +1,60 @@
+<app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+<div class="uk-container uk-margin-xlarge-bottom">
+  <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo">{{'dashboard'|translate}}</a>
+    </div>
+    <div class="uk-navbar-right">
+      <div class="uk-navbar-item">
+        <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="configNotification()">{{'config'|translate}} {{'notification'|translate}}</button>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="uk-card uk-card-default uk-margin" style="border:1px solid #ddd;" *ngFor="let car of cars; let i = index">
+    <div class="uk-card-header uk-background-muted">
+		<div class="uk-width-expand">
+			<h3 class="uk-card-title uk-margin-remove-bottom">{{car.license_plate}}</h3>
+			  <table class="uk-table uk-table-striped uk-margin-remove-bottom">
+				  <tr>
+					<!-- <td style="width:5em">{{'brand'|translate}}</td>
+					<td>{{car.brand}}</td>
+				  </tr>
+				  <tr>
+					<td>{{'model'|translate}}</td>
+					<td>{{car.model}}</td>
+				  </tr>
+				  <tr>
+					<td>{{'color'|translate}}</td>
+					<td>{{car.color}}</td> -->
+				  </tr>
+				  <tr>
+					<td>{{'current'|translate}} {{'station'|translate}}</td>
+					<td>{{car.currentStation}}</td>
+				  </tr>
+				  <tr>
+					<td>{{'time in station'|translate}}</td>
+					<td>{{car.stationTime}} {{'minutes'|translate}}</td>
+				  </tr>
+				  <tr>
+					<td>{{'total time from arrival'|translate}}</td>
+					<td>{{car.totalTime}} {{'minutes'|translate}}</td>
+				  </tr>
+			  </table>
+		</div>
+    </div>
+    <div class="uk-card-footer">
+          <span *ngIf="car.currentStatus != ''">
+            <!-- <button class="uk-button uk-button-danger uk-button-small" style="width: 100px;">
+						</button> -->
+						<span uk-icon="warning" style="position: relative;color:red; bottom: 2px;"></span>
+          </span>
+          <button class="uk-button uk-button-mute uk-button-small uk-border-rounded uk-margin-left" (click)="timeline(car.id)">{{'view'|translate}} {{'timeline'|translate}}</button>
+	</div>
+  </div> 
+</div>
+
+<div class="loading" *ngIf="loading">
+  <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+</div>

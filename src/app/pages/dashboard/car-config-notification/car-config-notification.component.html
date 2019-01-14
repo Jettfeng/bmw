@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="uk-container">
+  <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo" >{{'Configure'|translate}} {{'notification'|translate}} {{'condition'|translate}}</a>
+    </div>
+    <div class="uk-navbar-right">
+    </div>
+  </nav>
+</div>
+
+<div class="uk-container">
+  <form class="uk-form-stacked uk-margin-top">
+
+    <div class="uk-margin" *ngFor="let dealer of form.dealer_noti_config">
+      <label class="uk-form-label" for="{{dealer.name}}">{{dealer.name}} ({{dealer.unit}})</label>
+      <div class="uk-form-controls">
+        <input class="uk-input" id="{{dealer.name}}" name="{{dealer.name}}" type="number" placeholder="" [(ngModel)]="dealer.value">
+      </div>
+    </div>
+
+    <div class="uk-margin" *ngFor="let station of form.station_noti_config">
+        <label class="uk-form-label" for="{{station.name}}">{{station.name}} {{station.station.name}} ({{station.unit}})</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" id="{{station.name}}" name="{{station.name}}" type="number" placeholder="" [(ngModel)]="station.value">
+        </div>
+      </div>
+
+  </form>
+  <div class="uk-container uk-text-right uk-margin-large-bottom">
+    <button class="uk-button uk-button-default uk-border-rounded" (click)="save()">{{'save'|translate}}</button>
+    <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancel()">{{'cancel'|translate}}</button>
+  <div>    
+</div>
+
+<app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
+
+<div class="loading" *ngIf="loading">
+  <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+</div>

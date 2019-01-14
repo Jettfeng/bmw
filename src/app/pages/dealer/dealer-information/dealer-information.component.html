@@ -1,0 +1,65 @@
+<app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+<div class="uk-container">
+  <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
+
+      <a class="uk-navbar-item uk-logo" >{{'dealer information'|translate}}</a>
+    </div>
+    <div class="uk-navbar-right">
+		<button class="uk-button uk-button-mute uk-margin-right uk-button-small" type="button"><span uk-icon="more"></span></button>
+		<div uk-dropdown="pos: bottom-right">
+			<ul class="uk-nav uk-dropdown-nav">
+				<li class=" uk-margin" (click)="editDealer()">{{'edit'|translate}} {{ 'dealer'|translate}}</li>
+				<li class="uk-nav-divider"></li>
+				<li class=" uk-margin" (click)="configStation()">{{'config'|translate}} {{'station'|translate}}</li>
+				<li class=" uk-margin" (click)="configNode()">{{'config'|translate}} {{'blenode'|translate}}</li>
+				<li class=" uk-margin" (click)="configBeacon()">{{'config'|translate}} {{'beacon'|translate}} </li>
+				<li class=" uk-margin" (click)="configNotification()">{{'config'|translate}} {{'notification'|translate}}</li>
+			</ul>
+		</div>
+    </div>
+  </nav>
+
+  <h2 class="uk-heading-line"><span>{{'information'|translate}}</span></h2>
+  <dl class="uk-description-list">
+      <dt>{{'dealer name'|translate}}</dt>
+      <dd>{{dealer.name}}</dd>
+      <dt>{{'address'|translate}}</dt>
+      <dd>{{dealer.address}} {{dealer.street}} {{dealer.state}} {{dealer.city}} {{dealer.country}} {{dealer.zipcode}}</dd>
+  </dl>
+
+  <h2 class="uk-heading-line"><span>{{'contact'|translate}} {{'person'|translate}}</span></h2>
+  <dl class="uk-description-list">
+      <dt>{{'name'|translate}}</dt>
+      <dd>{{dealer.contact_name}}</dd>
+      <dt>{{'position'|translate}}</dt>
+      <dd>{{dealer.contact_position}}</dd>
+      <dt>{{'email'|translate}}</dt>
+      <dd>{{dealer.contact_email}}</dd>
+      <dt>{{'tel'|translate}}</dt>
+      <dd>{{dealer.contact_tel}}</dd>
+  </dl>
+  <h2 class="uk-heading-line"><span>{{'stations'|translate}}</span></h2>
+  <div class="uk-overflow-auto">
+	  <table class="uk-table uk-table-striped">
+		<thead>
+		  <tr>
+			<th>{{'id'|translate}}</th>
+			<th>{{'name'|translate}}</th>
+			<th>{{'status'|translate}}</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr *ngFor="let station of dealer.station; let i = index">
+			<td>{{station.id}}</td>
+			<td class="uk-text-nowrap">{{station.name}}</td>
+			<td class="uk-text-nowrap" [translate]="station.status"></td>
+		  </tr>
+		</tbody>
+	  </table>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<div class="loading" *ngIf="loading"><span class="uk-margin-small-right" uk-spinner="ratio: 3"></span></div>

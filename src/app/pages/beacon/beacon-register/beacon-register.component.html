@@ -1,0 +1,49 @@
+<app-header>
+</app-header>
+<div class="uk-container">
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" >{{'register beacon'|translate}}</a>
+        </div>
+        <div class="uk-navbar-right">
+            <div class="uk-navbar-item">
+                <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="registerBeacon()">{{'register'|translate}}</button>
+                <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelBeacon()">{{'cancel'|translate}}</button>
+            </div>
+        </div>
+    </nav>
+    <form class="uk-form-stacked">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">*{{'id'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="id" id="form-stacked-text" type="text" [(ngModel)]="form.id">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'name'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="name" id="form-stacked-text" type="text" [(ngModel)]="form.name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">*{{'uuid'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="uuid" id="form-stacked-text" type="text" [(ngModel)]="form.uuid">
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="modal-confirm" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <p>{{'register beacon'|translate}}?</p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small-left" type="button" (click)="modalConfirm()">{{'confirm'|translate}}</button>
+            <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" type="button" (click)="modalCancel()">{{'cancel'|translate}}</button>
+        </p>
+    </div>
+</div>
+
+<div class="loading" *ngIf="loading">
+    <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+</div>

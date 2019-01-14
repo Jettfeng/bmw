@@ -1,0 +1,61 @@
+<app-header>
+</app-header>
+<div class="uk-container">
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" >{{'car register'|translate}}</a>
+        </div>
+        <div class="uk-navbar-right">
+            <div class="uk-navbar-item">
+                <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="registerCar()">{{'register'|translate}}</button>
+                <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelCar()">{{'cancel'|translate}}</button>
+            </div>
+        </div>
+    </nav>
+    <form class="uk-form-stacked">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="licensePlate">*{{'license plate'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="licensePlate" id="licensePlate" type="text" [(ngModel)]="form.licensePlate">
+            </div>
+        </div>
+        <!-- <div class="uk-margin">
+            <label class="uk-form-label" for="brand">*{{'brand'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="brand" id="brand" type="text" [(ngModel)]="form.brand">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="model">*{{'model'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="model" id="model" type="text" [(ngModel)]="form.model">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="color">*{{'color'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="color" id="color" type="text" [(ngModel)]="form.color">
+            </div>
+        </div> -->
+        <div class="uk-margin">
+            <label class="uk-form-label" for="beacont">*{{'beacon'|translate}}{{'id'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="beaconId" id="beacon" type="text" [(ngModel)]="form.beaconId">
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="modal-confirm" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <p>{{'create user'|translate}}?</p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-primary uk-border-rounded uk-margin-small-left" type="button" (click)="modalConfirm()">{{'confirm'|translate}}</button>
+            <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" type="button" (click)="modalCancel()">{{'cancel'|translate}}</button>
+        </p>
+    </div>
+</div>
+
+<div class="loading" *ngIf="loading">
+    <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+</div>

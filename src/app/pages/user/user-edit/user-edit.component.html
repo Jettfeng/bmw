@@ -1,0 +1,70 @@
+<app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+<div class="uk-container">
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo">{{'user edit'|translate}}</a>
+        </div>
+        <div class="uk-navbar-right">
+        </div>
+    </nav>
+    <form class="uk-form-stacked">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="username">*{{'username'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="username" id="username" type="text" [(ngModel)]="user.username">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="fullname">{{'fullname'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="fullname" id="fullname" type="text" [(ngModel)]="user.fullname">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="position">*{{'position'|translate}}</label>
+            <div class="uk-form-controls">
+                <select class="uk-select" id="position" name="position" [(ngModel)]="user.user_role_id" disabled>
+                        <option value="0" selected>Please select user role</option>
+                        <option value="supervisor">Supervisor</option>
+                        <option value="analyst">Analyst</option>
+                        <option value="technician">Technician</option>
+                </select>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="email">{{'email'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="email" id="email" type="text" [(ngModel)]="user.email">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="tel">{{'tel'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="tel" id="tel" type="text" [(ngModel)]="user.tel">
+            </div>
+        </div>
+        <hr>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="password">{{'new'|translate}} {{'password'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="password" id="password" type="password" [(ngModel)]="user.password">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="password-reply"> {{'reply'|translate}} {{'new'|translate}} {{'password'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="password-reply" id="password-reply" type="password" [(ngModel)]="user.passwordReply">
+            </div>
+        </div>
+    </form>
+    <div class="uk-container uk-text-right uk-margin-large-bottom">
+        <button class="uk-button uk-button-default uk-border-rounded" (click)="editUser()">{{'edit'|translate}}</button>
+        <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelUser()">{{'cancel'|translate}}</button>
+    </div>
+</div>
+
+<app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
+
+<div class="loading" *ngIf="loading">
+    <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+</div>

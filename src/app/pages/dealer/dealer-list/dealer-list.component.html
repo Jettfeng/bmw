@@ -1,0 +1,40 @@
+<app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+<div class="uk-container">
+  <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
+
+      <a class="uk-navbar-item uk-logo" >{{'dealer list'|translate}}</a>
+    </div>
+    <div class="uk-navbar-right">
+      <div class="uk-navbar-item">
+        <button class="uk-button uk-button-default uk-border-rounded" (click)="create()">{{'create dealer'|translate}}</button>
+      </div>
+    </div>
+  </nav>
+
+  
+<div class="uk-card uk-card-default uk-margin" style="border:1px solid #ddd;" *ngFor="let dealer of dealers; let i = index">
+    <div class="uk-card-header uk-background-muted">
+		<div class="uk-width-expand">
+			<h3 class="uk-card-title uk-margin-remove-bottom">{{dealer.name}}</h3>
+		<p class="uk-text-meta uk-margin-remove-top">{{'id' |translate}}: {{dealer.id}}</p>
+		<p>{{'address' |translate}}: {{dealer.address}} {{dealer.street}} {{dealer.state}} {{dealer.city}} {{dealer.country}}</p>
+		</div>
+    </div>
+    <div class="uk-card-footer">
+		<div class="uk-label" [translate]="dealer.status"></div>
+		<button class="uk-button uk-button-mute uk-button-small uk-border-rounded uk-margin-left" (click)="view(dealer.id)">{{'enter'|translate}}</button>
+	</div>
+</div>
+<div class=" uk-margin">
+  <ul class="uk-pagination uk-flex-center" uk-margin>
+      <li *ngIf="pageController.pageIndex != 1"><a (click)="changePageonClick(false,-1)"><span uk-pagination-previous></span></a></li>
+      <li *ngIf="pageController.pageIndex > 4" class="uk-disabled"><span>...</span></li>
+      <li *ngFor="let index of pageController.pageArray" [class.uk-active]="index==pageController.pageIndex"><a (click)="changePageonClick(true,index)">{{index}}</a></li>
+      <!-- <li class="uk-active"><span>4</span></li> -->
+      <li *ngIf="pageController.pageNumber - pageController.pageIndex > 3" class="uk-disabled"><span>...</span></li>
+      <li *ngIf="pageController.pageIndex != pageController.pageNumber"><a (click)="changePageonClick(false,1)"><span uk-pagination-next></span></a></li>
+  </ul>
+</div>
+</div>
+<div class="loading" *ngIf="loading"><span class="uk-margin-small-right" uk-spinner="ratio: 3"></span></div>

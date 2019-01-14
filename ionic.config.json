@@ -1,0 +1,7 @@
+{
+  "name": "track",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
