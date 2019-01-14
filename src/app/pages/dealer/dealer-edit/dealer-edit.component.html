@@ -1,0 +1,101 @@
+<app-header>
+</app-header>
+<div class="uk-container">
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" >{{'dealer edit'|translate}}</a>
+        </div>
+        <div class="uk-navbar-right">
+        </div>
+    </nav>
+    <form class="uk-form-stacked">
+        <div class="uk-alert-danger" *ngIf="alert.show" uk-alert>{{alert.message}}</div>
+        <h4 class="uk-heading-line">
+            <span>{{'dealer'|translate}}</span>
+        </h4>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">*{{'dealer name'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="dealername" id="form-stacked-text" type="text" [(ngModel)]="form.name">
+            </div>
+        </div>
+
+        <h4 class="uk-heading-line">
+            <span>{{'location'|translate}}</span>
+        </h4>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'address'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="phoaddressne" id="form-stacked-text" type="text" [(ngModel)]="form.address">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'street'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="street" id="form-stacked-text" type="text" [(ngModel)]="form.street">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'city'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="city" id="form-stacked-text" type="text" [(ngModel)]="form.city">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'state'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="state" id="form-stacked-text" type="text" [(ngModel)]="form.state">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'country'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="country" id="form-stacked-text" type="text" [(ngModel)]="form.country">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'zipcode'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="zipcode" id="form-stacked-text" type="text" [(ngModel)]="form.zipcode">
+            </div>
+        </div>
+
+        <h4 class="uk-heading-line">
+            <span>{{'contact person'|translate}}</span>
+        </h4>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'name'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="name" id="form-stacked-text" type="text" [(ngModel)]="form.contact_name">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'position'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="position" id="form-stacked-text" type="text" [(ngModel)]="form.contact_position">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'email'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="email" id="form-stacked-text" type="text" [(ngModel)]="form.contact_email">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">{{'tel'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="tel" id="form-stacked-text" type="text" [(ngModel)]="form.contact_tel">
+            </div>
+        </div>
+    </form>
+    <div class="uk-container uk-text-right uk-margin-large-bottom">
+        <button class="uk-button uk-button-default uk-border-rounded" (click)="edit()">{{'edit'|translate}}</button>
+        <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancel()">{{'cancel'|translate}}</button>
+    </div>
+</div>
+
+<app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
+
+<div class="loading" *ngIf="loading">
+    <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+</div>

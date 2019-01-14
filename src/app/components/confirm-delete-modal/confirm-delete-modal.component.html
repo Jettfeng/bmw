@@ -1,0 +1,11 @@
+<div id="confirm-delete-modal" uk-modal="bg-close:false; esc-close=false;">
+    <div class="uk-modal-dialog">
+        <div class="uk-modal-body">
+            <p>{{detail}}</p>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+          <button class="uk-button uk-button-primary uk-border-rounded" type="button" (click)="clickConfirm()">{{confirm}}</button>
+          <button class="uk-button uk-button-default uk-modal-close uk-margin-left uk-border-rounded" type="button" (click)="clickCancel()">{{cancel}}</button>
+        </div>
+    </div>
+  </div>

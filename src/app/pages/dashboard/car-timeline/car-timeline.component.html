@@ -1,0 +1,95 @@
+<app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+<div class="uk-container uk-margin-xlarge-bottom">
+  <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo" >{{'timeline'|translate}}</a>
+    </div>
+    <div class="uk-navbar-right">
+      <div class="uk-navbar-item">
+      </div>
+    </div>
+  </nav>
+
+  <h2 class="uk-heading-line"><span>{{'information'|translate}}</span></h2>
+  <dl class="uk-description-list">
+      <dt>{{'status'|translate}}</dt>
+      <dd>
+        <button *ngFor="let status of car.status" class="uk-button uk-button-danger uk-button-small">
+          {{status}}
+        </button>
+      </dd>
+      <dt>{{'license plate'|translate}}</dt>
+      <dd>{{car.license_plate}}</dd>
+      <dt>{{'brand'|translate}}</dt>
+      <dd>{{car.brand}}</dd>
+      <dt>{{'model'|translate}}</dt>
+      <dd>{{car.model}}</dd>
+      <dt>{{'color'|translate}}</dt>
+      <dd>{{car.color}}</dd>
+  </dl>
+
+  <h2 class="uk-heading-line"><span>{{'timeline'|translate}}</span></h2>
+  <div class="uk-overflow-auto">
+  <table class="uk-table uk-table-striped">
+    <thead>
+      <tr>
+        <th class="uk-text-nowrap">{{'station'|translate}}</th>
+        <th class="uk-text-nowrap">{{'arrival time'|translate}}</th>
+        <th class="uk-text-nowrap">{{'departure time'|translate}}</th>
+        <th class="uk-text-nowrap">{{'used time'|translate}} ({{'minutes'|translate}})</th>
+        <th class="uk-text-nowrap">{{'status'|translate}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let timeline of car.timeline" >
+        <ng-container *ngIf="timeline.station_id != 0">
+          <td class="uk-text-nowrap">
+            {{timeline.station.name}}
+          </td>
+          <td class="uk-text-nowrap">
+            {{timeline.arrival_at}}
+          </td>
+          <td class="uk-text-nowrap">
+            {{timeline.departure_at}}
+          </td>
+          <td class="uk-text-nowrap">
+            {{timeline.stationTime}}
+          </td>
+          <td class="uk-text-nowrap">
+            <div *ngIf="timeline.status != ''">
+              <button class="uk-button uk-button-danger uk-button-small" style="width: 100px;">
+                {{timeline.status}}
+              </button>
+            </div>
+            <div *ngIf="timeline.status == ''">
+                OK
+            </div>
+          </td>
+        </ng-container>
+        
+        <ng-container *ngIf="timeline.station_id == 0">
+            <td>
+              {{"Register"|translate}}
+            </td>
+            <td>
+              {{timeline.arrival_at}}
+            </td>
+            <td>
+              -
+            </td>
+            <td>
+              -
+            </td>
+            <td>
+              -
+            </td>
+          </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<div class="loading" *ngIf="loading">
+  <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+</div>
