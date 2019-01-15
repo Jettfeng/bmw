@@ -1,10 +1,40 @@
-<div *ngIf="role.service_agent" >
-    切片dashboard页面代码
-  <app-footer></app-footer>
-</div>
+<div class="uk-container"  >
+    <nav class="uk-navbar-container uk-margin" uk-navbar style=" background:none;">
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" >{{'Dashboard'|translate}} {{'management'|translate}}</a>
+      </div>
+      <div class="uk-navbar-right">
+          <button class="uk-button uk-button-small uk-button-primary uk-border-rounded" (click)="registerCar()">{{'notification'|translate}}</button>
+  
+      </div>
+    </nav>
+    
+    <table class="uk-table uk-table-justify uk-table-divider   ">
+        <thead>
+            <tr>
+                <th>License plate</th>
+                <th>Current Station</th>
+                <th>Time in station </th>
+                    <th>Total time from arrival</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>xalw123 </td>
+                <td>-carsdf</td>
+                <td>-carsd</td>
+                <td>carsdfcarsdf</td>
+            </tr>
+            <tr >
+                <td colspan="4"><button class="uk-button uk-button-default" type="button">edit</button> </td>
+                      </tr>
+        </tbody>
+    </table>
+    
+    </div>
+    <app-footer></app-footer>
 
-
-<app-header  [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+<!-- <app-header  [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
 <div    class="uk-container uk-margin-xlarge-bottom">
   <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
@@ -24,16 +54,7 @@
 			<h3 class="uk-card-title uk-margin-remove-bottom">{{car.license_plate}}</h3>
 			  <table class="uk-table uk-table-striped uk-margin-remove-bottom">
 				  <tr>
-					<!-- <td style="width:5em">{{'brand'|translate}}</td>
-					<td>{{car.brand}}</td>
-				  </tr>
-				  <tr>
-					<td>{{'model'|translate}}</td>
-					<td>{{car.model}}</td>
-				  </tr>
-				  <tr>
-					<td>{{'color'|translate}}</td>
-					<td>{{car.color}}</td> -->
+				 
 				  </tr>
 				  <tr>
 					<td>{{'current'|translate}} {{'station'|translate}}</td>
@@ -52,14 +73,14 @@
     </div>
     <div class="uk-card-footer">
           <span *ngIf="car.currentStatus != ''">
-            <!-- <button class="uk-button uk-button-danger uk-button-small" style="width: 100px;">
+            <button class="uk-button uk-button-danger uk-button-small" style="width: 100px;">
 						</button> -->
-						<span uk-icon="warning" style="position: relative;color:red; bottom: 2px;"></span>
+						<!-- <span uk-icon="warning" style="position: relative;color:red; bottom: 2px;"></span>
           </span>
           <button class="uk-button uk-button-mute uk-button-small uk-border-rounded uk-margin-left" (click)="timeline(car.id)">{{'view'|translate}} {{'timeline'|translate}}</button>
 	</div>
   </div> 
-</div>
+</div> -->  
 
 <div class="loading" *ngIf="loading">
   <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>

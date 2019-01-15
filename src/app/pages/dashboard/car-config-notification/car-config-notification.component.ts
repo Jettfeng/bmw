@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DashboardService } from '../services/dashboard.service';
-
+ 
 declare var UIkit: any;
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-car-config-notification',
   templateUrl: './car-config-notification.component.html',
   styleUrls: ['./car-config-notification.component.scss']

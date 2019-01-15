@@ -1,11 +1,11 @@
  
-  <!-- 切片car-config-notification页面代码 -->
-   <div class="uk-container"  >
+  <!-- 切片car-config-notification页面代码 内容就是下面的，数据绑定好了-->
+   <div class="uk-container"  style=" background:none;"  >
     <button class="uk-button uk-button-primary  uk-margin-small-right" (click)="cancel()">{{'Cancel'|translate}}</button>
     <button class="uk-button uk-button-primary" (click)="save()">{{'Save'|translate}}</button>
    </div>
-  <div  class="uk-container">
-    <nav class="uk-navbar-container uk-margin" uk-navbar style=" background-color: #ffffff;">  
+  <div  class="uk-container" style=" background:none;" >
+    <nav class="uk-navbar-container uk-margin" uk-navbar style=" background:none;"  >  
       <div class="uk-navbar-center">
         <a class="uk-navbar-item uk-logo" >{{'Configure'|translate}} {{'notification'|translate}} {{'condition'|translate}}</a>
       </div>
@@ -13,8 +13,8 @@
     </nav>
   </div>
   
-  <div   class="uk-container">
-    <form class="uk-form-stacked uk-margin-top">
+  <div   class="uk-container " >
+    <form class="uk-form-stacked uk-margin-top uk-padding" style=" background-color: #fff; box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.08);" >
   
       <div class="uk-margin" *ngFor="let dealer of form.dealer_noti_config">
         <label class="uk-form-label" for="{{dealer.name}}">{{dealer.name}} ({{dealer.unit}})</label>
