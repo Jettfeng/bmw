@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProfileService } from '../services/profile.service';
 import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
+import { AuthenService } from '../../../services/authen/authen.service';
 declare var UIkit: any;
 
 @Component({
@@ -31,7 +32,7 @@ export class ProfileEditComponent implements OnInit {
     tel: '',
   }
 
-  constructor(private router : Router, private activeRoute : ActivatedRoute, private profileService: ProfileService, private translate: TranslateService) { 
+  constructor(private router : Router, private activeRoute : ActivatedRoute, private profileService: ProfileService, private translate: TranslateService, private auth : AuthenService) { 
   
     this.userId = localStorage.getItem('userId');
   }
@@ -52,55 +53,17 @@ export class ProfileEditComponent implements OnInit {
     })
   }
 
-  editProfile(){    
-    let _elementId = "#"+this.confirmModal.elementId;
-    if(this.user.password == ""){
-      UIkit.modal(_elementId).show();
-    }else{
-      if(this.user.password == this.user.passwordReply){
-        UIkit.modal(_elementId).show();
-      }else{
-        UIkit.notification({
-          message: this.translate.instant('password and re-password not match'),
-          status: 'warning',
-          timeout: 1000
-        })
-      }
-    }
+  pwdprofile(){
+    this.router.navigate(['profile', 'edit']);
+  }
+  logout(){
+    this.auth.userLogout().then((res:any)=>{
+      this.router.navigate(['login']);
+      //window.location.href = window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/tracking/#/login";
+    }).catch(err=>{
+      this.router.navigate(['login']);
+    });
     
-
-  }
-
-  cancelProfile(){
-    let _elementId = "#"+this.confirmModal.elementId;
-    UIkit.modal(_elementId).$destroy(true);
-    this.router.navigate(['menu']);
-  }
-
-  onClickConfirmModal(event){
-    let _elementId = "#"+this.confirmModal.elementId;
-    if(event){
-      this.loading=true;
-      this.profileService.edit(this.user).then((res:any)=>{
-        this.loading=false;
-        UIkit.util.on(_elementId, 'hidden', function () {
-          UIkit.modal(_elementId).$destroy(true);
-        });
-        UIkit.modal(_elementId).hide();
-        this.router.navigate(['menu']);
-      }).catch((err:any)=>{
-        UIkit.modal(_elementId).hide();
-        this.loading=false;
-        UIkit.notification({
-          message: this.translate.instant('Cannot edit Profile'),
-          status: 'warning',
-          timeout: 1000
-        })
-      })
-
-    }else{
-      UIkit.modal(_elementId).hide();
-    }
   }
 
 

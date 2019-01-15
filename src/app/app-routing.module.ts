@@ -22,6 +22,7 @@ import { CarRegisterComponent } from './pages/car/car-register/car-register.comp
 import { CarListComponent } from './pages/car/car-list/car-list.component';
 import { CarEditComponent } from './pages/car/car-edit/car-edit.component';
 import { ProfileEditComponent } from './pages/profile/profile-edit/profile-edit.component';
+import { ProfilePwdComponent } from './pages/profile/profile-pwd/profile-pwd.component';
 import { StationEditComponent } from './pages/station/station-edit/station-edit.component';
 import { NodeEditComponent } from './pages/node/node-edit/node-edit.component';
 import { StationConfigComponent } from './pages/station/station-config/station-config.component';
@@ -118,6 +119,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'edit', component: ProfileEditComponent },
+      { path: 'pwd', component: ProfilePwdComponent }
+      
     ]
   },
 ];

@@ -1,5 +1,5 @@
 
-profile manager 切片代码
+profile-pwd 密码设置切片代码
 <app-header>
   </app-header>
   <div class="uk-container">
@@ -17,12 +17,11 @@ profile manager 切片代码
                   <input class="uk-input" name="username" id="username" type="text" [(ngModel)]="user.username" disabled>
               </div>
           </div>
-
-          
+ 
           <div class="uk-margin">
               <label class="uk-form-label" for="position">*{{'position'|translate}}</label>
               <div class="uk-form-controls">
-                  <select class="uk-select" id="position" name="position" [(ngModel)]="user.user_role_id" disabled>
+                  <select class="uk-select"  id="position" name="position" [(ngModel)]="user.user_role_id" disabled>
                       <option value="admin">Admin</option>
                       <option value="supervisor">Supervisor</option>
                       <option value="analyst">Analyst</option>
@@ -30,11 +29,24 @@ profile manager 切片代码
                   </select>
               </div>
           </div>
-           
+          
+          <hr>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="password">{{'new'|translate}} {{'password'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="password" id="password" type="password" [(ngModel)]="user.password">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="password-reply"> {{'reply'|translate}} {{'new'|translate}} {{'password'|translate}}</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" name="password-reply" id="password-reply" type="password" [(ngModel)]="user.passwordReply">
+            </div>
+        </div>
       </form>
       <div class="uk-container uk-text-right uk-margin-large-bottom">
-          <button class="uk-button uk-button-default uk-border-rounded" (click)="pwdprofile()">{{'password'|translate}}</button>
-          <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="logout()">{{'logout'|translate}}</button>
+          <button class="uk-button uk-button-default uk-border-rounded" (click)="editProfile()">{{'edit'|translate}}</button>
+          <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelProfile()">{{'cancel'|translate}}</button>
       </div>
   </div>
   
