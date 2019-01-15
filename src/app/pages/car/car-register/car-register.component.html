@@ -1,13 +1,17 @@
- 
-    切片car-register汽车页面代码
-   
-  
+<!-- 切片car-register汽车页面代码 -->
 
-<app-header>
-</app-header>
-<div class="uk-container">
-   
-    <form class="uk-form-stacked">
+<!-- <app-header>
+</app-header> -->
+<div class="uk-container register-wrap">
+  <div uk-grid>
+    <div class="uk-width-1-3 uk-text-center uk-text-emphasis">Cancel</div>
+    <!-- <div class="uk-width-1-4"></div> -->
+    <div class="uk-width-1-3"></div>
+    <div class="uk-width-1-3 uk-text-center">
+        <button class="uk-button-primary">Save</button>
+    </div>
+  </div>
+  <!-- <form class="uk-form-stacked">
         <div class="uk-margin">
            
             <label class="uk-form-label" for="licensePlate">*{{'license plate'|translate}}</label>
@@ -31,14 +35,15 @@
             <button class="uk-button uk-button-default uk-border-rounded" (click)="registerCar()">{{'register'|translate}}</button>
             <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelCar()">{{'cancel'|translate}}</button>
         </div>
-    </form>
+    </form> -->
 </div>
 
- 
-<app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
-
- 
+<app-confirm-modal
+  [elementId]="confirmModal.elementId"
+  [detail]="confirmModal.detail"
+  (onClick)="onClickConfirmModal($event)"
+></app-confirm-modal>
 
 <div class="loading" *ngIf="loading">
-    <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+  <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
 </div>
