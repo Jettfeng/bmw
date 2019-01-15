@@ -24,7 +24,12 @@ export class CarDashboardComponent implements OnInit, OnDestroy {
     totalTime: 0,
   };
   cars = [];
-
+  role = {
+    admin: false,
+    supervisor: false,
+    technician: false,
+    analyst: false,
+  }
   // secondsCounter = interval(5000);
 
   interval = setInterval(() => {
@@ -36,6 +41,8 @@ export class CarDashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    let userType = localStorage.getItem('userType');
+    this.role[userType] = true;
     this.loadCar();
   }
 

@@ -32,6 +32,12 @@ export class CarEditComponent implements OnInit {
     timeline: [],
   }
   beacons = [];
+  role = {
+    admin: false,
+    supervisor: false,
+    technician: false,
+    analyst: false,
+  }
   constructor(private router : Router, private activeRoute : ActivatedRoute, private carService: CarService, private translate: TranslateService) { 
     this.dealerId = activeRoute.snapshot.params['dealerId'];
     this.car.dealer_id = activeRoute.snapshot.params['dealerId'];
@@ -39,6 +45,8 @@ export class CarEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    let userType = localStorage.getItem('userType');
+    this.role[userType] = true;
     this.loadCar();
   }
 

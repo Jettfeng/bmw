@@ -1,5 +1,11 @@
-<app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
-<div class="uk-container uk-margin-xlarge-bottom">
+<div *ngIf="role.service_agent" >
+    切片dashboard页面代码
+  <app-footer></app-footer>
+</div>
+
+
+<app-header  [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+<div    class="uk-container uk-margin-xlarge-bottom">
   <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
       <a class="uk-navbar-item uk-logo">{{'dashboard'|translate}}</a>

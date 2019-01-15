@@ -1,5 +1,11 @@
-<app-header></app-header>
-<div class="uk-container">
+
+<div *ngIf="role.service_agent" >
+  切片car-config-notification页面代码
+<app-footer></app-footer>
+</div>
+
+<app-header ></app-header>
+<div  class="uk-container">
   <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
       <a class="uk-navbar-item uk-logo" >{{'Configure'|translate}} {{'notification'|translate}} {{'condition'|translate}}</a>
@@ -9,7 +15,7 @@
   </nav>
 </div>
 
-<div class="uk-container">
+<div   class="uk-container">
   <form class="uk-form-stacked uk-margin-top">
 
     <div class="uk-margin" *ngFor="let dealer of form.dealer_noti_config">

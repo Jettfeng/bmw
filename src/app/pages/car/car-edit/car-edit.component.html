@@ -1,3 +1,9 @@
+
+<div *ngIf="role.service_agent" >
+    切片car-edit汽车页面代码
+  <app-footer></app-footer>
+  </div>
+
 <app-header>
 </app-header>
 <div class="uk-container">
@@ -15,30 +21,11 @@
                 <input class="uk-input" name="licensePlate" id="licensePlate" type="text" [(ngModel)]="car.license_plate">
             </div>
         </div>
-        <!-- <div class="uk-margin">
-            <label class="uk-form-label" for="brand">*{{'brand'|translate}}</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" name="brand" id="brand" type="text" [(ngModel)]="car.brand">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label" for="model">*{{'model'|translate}}</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" name="model" id="model" type="text" [(ngModel)]="car.model">
-            </div>
-        </div>
-        <div class="uk-margin">
-            <label class="uk-form-label" for="color">*{{'color'|translate}}</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" name="color" id="color" type="text" [(ngModel)]="car.color">
-            </div>
-        </div> -->
+        
         <div class="uk-margin">
             <label class="uk-form-label" for="beacont">*{{'beacon'|translate}}{{'name'|translate}}</label>
             <div class="uk-form-controls">
-                <!--
-                <input class="uk-input" name="beaconId" id="beacon" type="text" [(ngModel)]="car.beacon_name">
-                -->
+               
 				<select class="uk-select"  id="beacon" [(ngModel)]="car.beacon_name">
                         <option *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
                     </select>

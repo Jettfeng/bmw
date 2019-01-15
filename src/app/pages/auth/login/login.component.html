@@ -7,7 +7,7 @@
        
       </div>
     <div class="uk-card   uk-card-default uk-card-body uk-width-1-1  uk-border-rounded  uk-margin-remove " style="opacity:0.9;">
-       
+      <div class="uk-alert-danger" *ngIf="alert.show" uk-alert>{{alert.message}}</div>
         <div class="uk-margin-bottom"></div>
         <div class="uk-margin uk-width-1-1 uk-grid uk-grid-new uk-margin-remove  "    >
             <label  class="uk-width-2-5  uk-width-2-5-new uk-text uk-text-left uk-padding-remove uk-margin-remove">{{'username' |translate}}</label>

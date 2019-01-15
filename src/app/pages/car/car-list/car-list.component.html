@@ -1,3 +1,9 @@
+
+<div *ngIf="role.service_agent" >
+  切片car-list页面代码
+<app-footer></app-footer>
+</div>
+
 <app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
 <div class="uk-container">
   <nav class="uk-navbar-container uk-margin" uk-navbar>
@@ -8,7 +14,7 @@
     </div>
   </nav>
   <fieldset class="uk-fieldset uk-background-muted uk-padding-small">
-	<div class="uk-margin">
+	<!-- <div class="uk-margin">
         <input class="uk-input" type="text" placeholder="*{{'license plate'|translate}}" [(ngModel)]="car.license_plate">
 	</div>
 
@@ -18,25 +24,14 @@
 	<div class="uk-margin">
 		<input class="uk-input" type="text" placeholder="*{{'id'|translate}}" [(ngModel)]="car.id">
 	</div>
-	<!-- <div class="uk-margin">
-        <input class="uk-input" type="text" placeholder="*{{'brand'|translate}}" [(ngModel)]="car.brand">
-	</div>
-	<div class="uk-margin">
-        <input class="uk-input" type="text" placeholder="*{{'model'|translate}}" [(ngModel)]="car.model">
-	</div>
-	<div class="uk-margin">
-        <input class="uk-input" type="text" placeholder="*{{'color'|translate}}" [(ngModel)]="car.color">
-	</div> -->
-
+ 
 
 	<div class="uk-margin">
-		<!--
-				<input class="uk-input" type="text" placeholder="*{{'beacon'|translate}} {{'name'|translate}}" [(ngModel)]="car.beacon_name">
--->
+ 
 				<select class="uk-select" [(ngModel)]="car.beacon_name">
 					<option *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
 				</select>
-	</div>
+	</div> -->
 	<div class="uk-margin">
         <button class="uk-button uk-button-small uk-button-primary uk-border-rounded" (click)="registerCar()">{{'register'|translate}} {{'car'|translate}}</button>
 	</div>

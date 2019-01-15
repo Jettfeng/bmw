@@ -22,13 +22,20 @@ export class CarTimelineComponent implements OnInit {
     status:[],
     timeline:[],
   };
-
+  role = {
+    admin: false,
+    supervisor: false,
+    technician: false,
+    analyst: false,
+  }
   constructor(private router : Router, private activeRoute : ActivatedRoute, private dashboardService: DashboardService) { 
     this.carId = activeRoute.snapshot.params['carId'];
     this.dealerId = activeRoute.snapshot.params['dealerId'];
   }
 
   ngOnInit() {
+    let userType = localStorage.getItem('userType');
+    this.role[userType] = true;
     this.loadCar();
   }
 

@@ -48,13 +48,20 @@ export class CarListComponent implements OnInit {
       beaconId:'',
     }
   }
-
+  role = {
+    admin: false,
+    supervisor: false,
+    technician: false,
+    analyst: false,
+  }
   constructor(private router : Router, private activeRoute : ActivatedRoute, private carService: CarService, private translate: TranslateService) { 
     this.dealerId = activeRoute.snapshot.params['dealerId'];
     this.car.dealer_id = activeRoute.snapshot.params['dealerId'];
   }
 
   ngOnInit() {
+    let userType = localStorage.getItem('userType');
+    this.role[userType] = true;
     this.loadCar();
   }
 
@@ -91,6 +98,7 @@ export class CarListComponent implements OnInit {
           }
         }
         this.cars = res.data.car;
+        console.log(this.cars);
         this.loading = false;
 
       }).catch((err:any)=>{
@@ -114,17 +122,21 @@ export class CarListComponent implements OnInit {
 
   registerCar(){
     let _elementId = "#"+this.confirmModal.elementId;
-    if(this.car.license_plate !='' && this.car.brand  !=''&& this.car.model  !=''&& this.car.color  !=''&& this.car.beacon_name  !=''){
-      this.confirmModal.detail=this.translate.instant("Do you confirm to register")+" " + this.car.license_plate + " "+this.translate.instant("car")+"?";
-      this.confirmModal.state="add";
-      UIkit.modal(_elementId).show();
-    } else { 
-      UIkit.notification({
-      message: this.translate.instant('* Cannot emptry!!!'),
-      status: 'warning',
-      timeout: 1000
-    });
-    }
+    UIkit.modal('#modal-deregister').$destroy(true);
+    UIkit.modal(_elementId).$destroy(true);
+    this.router.navigate(['car', 'register', this.dealerId]);
+    // let _elementId = "#"+this.confirmModal.elementId;
+    // if(this.car.license_plate !='' && this.car.brand  !=''&& this.car.model  !=''&& this.car.color  !=''&& this.car.beacon_name  !=''){
+    //   this.confirmModal.detail=this.translate.instant("Do you confirm to register")+" " + this.car.license_plate + " "+this.translate.instant("car")+"?";
+    //   this.confirmModal.state="add";
+    //   UIkit.modal(_elementId).show();
+    // } else { 
+    //   UIkit.notification({
+    //   message: this.translate.instant('* Cannot emptry!!!'),
+    //   status: 'warning',
+    //   timeout: 1000
+    // });
+    // }
   }
 
   editCar(carId){
