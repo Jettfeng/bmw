@@ -1,48 +1,52 @@
 <div class="uk-container uk-block-wrap">
   <div class="uk-margin-large-bottom" uk-grid>
     <div class="uk-width-4-5 uk-text-large uk-text-emphasis">
-      Profile Management
+        {{'Profile'|translate}} {{'Management'|translate}}
     </div>
     <div
       class="uk-width-1-5 uk-width-padding uk-text-center uk-text-middle en uk-text-primary language"
     >
-      En|中
+    <span (click)="changeLang()">EN</span><span style="padding-left:3px;padding-right:3px;">|</span><span (click)="changeLang()">中</span>
     </div>
   </div>
   <div class="uk-margin-top">&nbsp;</div>
   <div
     class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-margin-top middleBg"
   >
+  <div class="uk-margin-top">&nbsp;</div>
     <div uk-grid>
-      <div class="uk-width-1-2 uk-text-emphasis">Username</div>
+      <div class="uk-width-1-2 uk-text-emphasis">{{'username'|translate}}</div>
       <div class="uk-width-1-2 uk-padding-remove">
         <input
-          class="uk-search-input uk-text-emphasis pad4"
-          type="search"
-          placeholder="sdfsdfsd"
+          class="uk-search-input uk-text-emphasis pad4" style="background-color:#fff;"
+     type="text" name="username" id="username"  [(ngModel)]="user.username" disabled
         />
       </div>
     </div>
+
+     
+
+
     <div uk-grid class="uk-margin-large-bottom">
-      <div class="uk-width-1-2 uk-text-emphasis">Position</div>
+      <div class="uk-width-1-2 uk-text-emphasis">{{'position'|translate}}</div>
       <div class="uk-width-1-2 uk-padding-remove">
         <input
           class="uk-search-input uk-text-emphasis pad4"
-          type="search"
-          placeholder="sdfsdfsd"
+          type="text"
+          [(ngModel)]="user.user_role_name" disabled  style="background-color:#fff;"
         />
       </div>
     </div>
     <div class="uk-margin-top">&nbsp;</div>
     <div class="uk-container uk-text-center uk-margin-top">
-      <button class="uk-button uk-button-primary uk-width-4-5 uk-margin-top btn-bg">
-        Password
+      <button class="uk-button uk-button-primary uk-width-4-5 uk-margin-top   btn-bg" (click)="pwdprofile()">{{'password'|translate}}
       </button>
-      <button class="uk-button uk-button-primary uk-width-4-5 uk-margin-top btn-bg">
-        Logout
+      <button class="uk-button uk-button-primary uk-width-4-5 uk-margin-top btn-bg" (click)="logout()">
+        {{'logout'|translate}}
       </button>
     </div>
   </div>
+  <app-footer></app-footer>
   <!-- <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
       <a class="uk-navbar-item uk-logo"
