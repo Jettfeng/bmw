@@ -44,6 +44,7 @@ export class MenuComponent implements OnInit {
     this.dealerId = localStorage.getItem('dealerId');
     let userType = localStorage.getItem('userType');
     this.role[userType] = true;
+    console.log(this.role);
     this.langmassage();
   }
 

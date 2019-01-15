@@ -54,7 +54,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   pwdprofile(){
-    this.router.navigate(['profile', 'edit']);
+    this.router.navigate(['profile', 'pwd']);
   }
   logout(){
     this.auth.userLogout().then((res:any)=>{
