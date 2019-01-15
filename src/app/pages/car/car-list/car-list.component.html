@@ -33,7 +33,32 @@
 					</tr>
 			</tbody>
 	</table>
-
+	<div class=" uk-margin">
+			<ul class="uk-pagination uk-flex-center" uk-margin>
+			<li *ngIf="pageController.pageIndex != 1">
+				<a (click)="changePageonClick(false,-1)">
+				<span uk-pagination-previous></span>
+				</a>
+			</li>
+			<li *ngIf="pageController.pageIndex > 4" class="uk-disabled">
+				<span>...</span>
+			</li>
+			<li *ngFor="let index of pageController.pageArray" [class.uk-active]="index==pageController.pageIndex">
+				<a (click)="changePageonClick(true,index)">{{index}}</a>
+			</li>
+			<!-- <li class="uk-active"><span>4</span></li> -->
+			<li *ngIf="pageController.pageNumber - pageController.pageIndex > 3" class="uk-disabled">
+				<span>...</span>
+			</li>
+			<li *ngIf="pageController.pageIndex != pageController.pageNumber">
+				<a (click)="changePageonClick(false,1)">
+				<span uk-pagination-next></span>
+				</a>
+			</li>
+			</ul>
+		</div>
+	</div>
+	<app-footer></app-footer>
   <!-- <fieldset class="uk-fieldset uk-background-muted uk-padding-small uk-margin">
 		<ul uk-accordion>
 	    <li *ngFor="let car of cars">
@@ -78,32 +103,7 @@
 		</div>
   </div> 
 			-->
-	<div class=" uk-margin">
-	  <ul class="uk-pagination uk-flex-center" uk-margin>
-		<li *ngIf="pageController.pageIndex != 1">
-		  <a (click)="changePageonClick(false,-1)">
-			<span uk-pagination-previous></span>
-		  </a>
-		</li>
-		<li *ngIf="pageController.pageIndex > 4" class="uk-disabled">
-		  <span>...</span>
-		</li>
-		<li *ngFor="let index of pageController.pageArray" [class.uk-active]="index==pageController.pageIndex">
-		  <a (click)="changePageonClick(true,index)">{{index}}</a>
-		</li>
-		<!-- <li class="uk-active"><span>4</span></li> -->
-		<li *ngIf="pageController.pageNumber - pageController.pageIndex > 3" class="uk-disabled">
-		  <span>...</span>
-		</li>
-		<li *ngIf="pageController.pageIndex != pageController.pageNumber">
-		  <a (click)="changePageonClick(false,1)">
-			<span uk-pagination-next></span>
-		  </a>
-		</li>
-	  </ul>
-  </div>
-</div>
-<app-footer></app-footer>
+
 <app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
 
  
