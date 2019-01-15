@@ -40,6 +40,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { ConfirmDeleteModalComponent } from './components/confirm-delete-modal/confirm-delete-modal.component';
 import { ProfileEditComponent } from './pages/profile/profile-edit/profile-edit.component';
+import { ProfilePwdComponent } from './pages/profile/profile-pwd/profile-pwd.component';
 import { StationEditComponent } from './pages/station/station-edit/station-edit.component';
 import { NodeEditComponent } from './pages/node/node-edit/node-edit.component';
 import { StationConfigComponent } from './pages/station/station-config/station-config.component';
@@ -82,6 +83,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NodeEditComponent,
     StationConfigComponent,
     NodeConfigComponent
+    ,
+    ProfilePwdComponent
   ],
   imports: [
     BrowserModule,
