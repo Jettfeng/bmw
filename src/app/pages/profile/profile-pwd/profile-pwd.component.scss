@@ -28,3 +28,11 @@
 .pad4 {
   padding-left: 4px;
 }
+@media screen and (max-width:320px) {
+ .middleBg{
+   padding: 15px !important;
+ }
+ .middleBg .left{
+   padding-left: 24px !important;
+ }
+}
