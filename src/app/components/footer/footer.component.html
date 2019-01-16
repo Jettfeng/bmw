@@ -8,10 +8,105 @@
 
 <!-- <div class="footer-bottom uk-margin-top"></div> -->
 
-<div class="footer-padding " ></div>
+<!-- <div class="footer-padding " ></div> -->
  
-<ul class="uk-subnav uk-subnav-divider uk-child-width-1-3 uk-text-center  uk-margin-remove  footer-bottom" >
-  <li  ><a href="javascript:void(0)" (click)="dashboard()">{{'DashBoard'|translate}} {{'Management'|translate}}</a></li>
-  <li  ><a href="javascript:void(0)" (click)="carManagement()">{{'Car'|translate}} {{'Management'|translate}}</a></li>
-  <li  ><a href="javascript:void(0)" (click)="profileManagement()">{{'Profile'|translate}} {{'Management'|translate}}</a></li>
+<!-- <ul class="uk-subnav uk-subnav-divider uk-child-width-1-3 uk-text-center  uk-margin-remove  footer-bottom" >
+  <li><a class="uk-text-emphasis" href="javascript:void(0)" (click)="dashboard()">{{'DashBoard'|translate}} {{'Management'|translate}}</a></li>
+  <li><a class="uk-text-emphasis" href="javascript:void(0)" (click)="carManagement()">{{'Car'|translate}} {{'Management'|translate}}</a></li>
+  <li><a class="uk-text-emphasis" href="javascript:void(0)" (click)="profileManagement()">{{'Profile'|translate}} {{'Management'|translate}}</a></li>
+</ul> -->
+
+<ul class="footer-bottom" >
+    <li>
+      <a class="uk-text-emphasis" href="javascript:void(0)" (click)="dashboard()">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="72px" height="52px" viewBox="0 0 72 52" enable-background="new 0 0 72 52" xml:space="preserve">  <image id="image0" width="72" height="52" x="0" y="0"
+            href="data:image/png;base64,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
+        AABJRU5ErkJggg==" />
+        </svg>
+        <span class="uk-text-small">{{'DashBoard'|translate}}</span>
+      </a>
+    </li>
+    <li>
+      <a class="uk-text-emphasis" href="javascript:void(0)" (click)="carManagement()">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="66px" height="49px" viewBox="0 0 66 49" enable-background="new 0 0 66 49" xml:space="preserve">  <image id="image0" width="66" height="49" x="0" y="0"
+            href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAxCAQAAADE67cMAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+        AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElN
+        RQfjARASDAH1bbUnAAADsklEQVRYw82YTWhcVRTHf/dlJrZi29iiDWKaVJoIVbQI/aBoiIsGEpeG
+        LAxKsdQiQmM3saBURfBjVbIRuulCA4q6yEZFBWktEtsKURcKImmDLX4k6cekNE4yyd/F3Pdmkrlv
+        +mbmTvTcxfvfj3fO/51z3v0yopyc1zh/AobqZInbuY8uNpVXoNgyqt3CS9mgQWUUPyC244gnAmFp
+        1bgqJDHomQJCt+lCDA3jyonT6iqqra8yH/IyS8HCo5xx5oaTRLe+il57g0dqIjHDCMei2jg7XDRK
+        nXNVaQsfkp9InIzga06NjqaPInjCEwmxyYJdTo1BqW8+i9C+mgKxLMD2eY7fHfF3kPjCPh9ma7Vz
+        VIn0lGgvS2JMf1jU680P0E2DRZ8mIVEY5JPEZrPXoq+ZKwlILIlm9uJTnrDPDGMlfSmAs7pCI9DA
+        ZX6wHd0E3jICoJejFg0TaBGAHGvpNEBGPc6/6kNvv2dYtjmbt+uieNvZ1agZ7yTi1qNnFSw5ndfJ
+        Rq/BKM6KlbIEV7XPwe64dz+IrO50NHdoQkbAGf3DXazlMF8CsIYMae+egBc1DIDhY7azyDQ5HqfB
+        pAAeMwDTumwHt/ArWVVnKF4CNlokbnAva3jQRA1iVLvUUOSilP9YOMs2G3bE+6tk0l2OSJhJteHd
+        8xXJGMHof0wBPiD1d1R5hxby02mab3jXtvbxJLmqDaT4nPcs3k8P8xYHzDPEFABTcCyKzlzR3HAo
+        gpM1zhjXI9i3QlO7BU+raJWai9CMTli0ky01zhfrTbg/+4SJZZEPKya/iublFB3KAekoFHCwNgYA
+        PEe4d3+dIeVsOLLcLAx5tYwvG8se3pKWBTWVHfCMgnLfMMA6D5N3yhy41Yj4rnW8GdOTkXHtkBE5
+        mhy0X2GEv6ohsZuTNDsUTuoAPxLEXBYssEXD+d1SkTSZ77Sf00lIvMU9Ee5gT0wgBvi2nGe5Qi+X
+        tNIfbeYU3+vnopZFhpgOK4XEnE+UhHckGDSRSFO7KzF/I4kcveWIvkSHpnktuMKRTF427TpHKiYx
+        s9zPoYr/qIpJQL/pr/ylshLUrsIriZZVNdxoCkEoCscIW1X9ol3pt2eZdZF4flU9sZzS/0BiTmCr
+        KYsEN2vXUqPcwFzQRQAG+QmAHRyvs9FZBmxS9vECsJlUm2kD4G6722qmqw4HwOWStrYesLaixAxX
+        tKl6M+C6MhaFt2MRifDedmfdSWwwHRbtCZvChfWa+tWqpzRbh0uBleUXdapVL0WW/gXMGmWFz2Wp
+        dwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0wMS0xNlQxMDoxMjowMSswODowMOxw8iAAAAAldEVY
+        dGRhdGU6bW9kaWZ5ADIwMTktMDEtMTZUMTA6MTI6MDErMDg6MDCdLUqcAAAAGXRFWHRTb2Z0d2Fy
+        ZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAABJRU5ErkJggg==" />
+        </svg>
+        <span class="uk-text-small">{{'Car'|translate}}</span>
+    </a>
+  </li>
+    <li>
+      <a class="uk-text-emphasis" href="javascript:void(0)" (click)="profileManagement()">
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="49px" height="51px" viewBox="0 0 49 51" enable-background="new 0 0 49 51" xml:space="preserve">  <image id="image0" width="49" height="51" x="0" y="0"
+            href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAzCAQAAACUXSicAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+        AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElN
+        RQfjARASDApiv2yvAAADs0lEQVRYw92YXWgUVxTHf2d2NJtgg+Qh0bQW4xdqg6UqjR8pfRBpxY/Q
+        KuiDoDZVidoHpQ+CQtOCpBTU0vqJYlVUMEofUigthVaISoSIRKVQpCVUg20NqVpWY7KZ0wdnrzOz
+        M8lmsnnQM7Dce+6Z87/3f865c/eK0qJtOFjkT9KM5X3J9OwW/RAZir8I+VvrXLfWpWEBgF9MyyrI
+        s2txpzzKaOynMVD2MjkvEA5b6PDF1s5gz6coT4yV6h1f34D9kzeq0mg4RP5EA/1hgAjKiwFhBxWO
+        dg8aVynsJxsDEOf0ED0x6r1EG5gW8ZoP4qHWY+PEIONf6jkbMebjpIDSGO4B0szIjagCOa1nSA2a
+        KKWM9blBQLl8HHMd0fJi1MXzCdEHQHo4IR6jwKPhhHiPkSirTD9rjzqv90LrQqngXQFHG7kPCEt4
+        ObSA1spMVV6XCIhdes7lMkxSulx28p3b+4bvtSQUZIZPGyCquV/mWoGLZlVP6MqJuIDHzxiNhZ31
+        JLCYQC3wCSVYWBSzhEk57TQBot6UH7UTKysaijJGABbIfO0CihjtGrVqI50cc3urdSormCqREDBC
+        xg4wq6SUm/bvuptmBNihH9HN51yjjUZqdAPjJAJicNJJM0/PHE00ARYWoDSxMSoWg5UqKfKQifs5
+        U17lFUPVECF+0GdVLJ5WOzfMcSo2UYd1FA84GDleS53aFFMjMSH+0P1kn/vEo3vEbkB4R0MOOfew
+        Q5K2j1KP8mvEd4woZBNz6eVnjrm7g7i/p4JEteoO/mJE1qyVNBN1D+NdmGISHogCzlIhAJXM03W+
+        96xguHfRgcOTrKcHh1vsM3afSq2HnloXAGC2LDMc2NTzgQQgqvqNwExPe7MkXVcO1T6rt02rnOWS
+        lVHbpUJvkwhxn2Y6iz3RSGnmf0SClM8yZUL+0F1LQFbmtLW1awO97ioSnGSOZ+y8ad1nq26PW3r1
+        tBjGe7jIUZO/e/S6x+4njsctvWraTEYJsI8LOhflAr95rAThrbgQq/nSUztKHzdoy7JSJjAvbnUn
+        Za/+SRcnjSZ4nh/JWgqZxRD2qIUCMEV3ho5a7GdO5oIio4x37K+RZzuBNxXLDIBZhXKJydq/u/Eh
+        6dyuvWQ8VOLwq9u7y3/6Uuar57gz2DbgjKfoAcoCMGP4ghPcRGhgqcAR/QqoZg1JY2N350zKLb6l
+        LqBLyiIWcVk7WCoA66VYK3nNNxG5rBsQNAcI4QRvxLgnEeWKXiU9QJk7JJhNVayLmP8BKtoH80s8
+        KSMAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDEtMTZUMTA6MTI6MTArMDg6MDCGrfkKAAAAJXRF
+        WHRkYXRlOm1vZGlmeQAyMDE5LTAxLTE2VDEwOjEyOjEwKzA4OjAw9/BBtgAAABl0RVh0U29mdHdh
+        cmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAASUVORK5CYII=" />
+        </svg>
+        <span class="uk-text-small">{{'Profile'|translate}}</span>
+      </a>
+    </li>
 </ul>
