@@ -40,8 +40,9 @@ export class ProfileEditComponent implements OnInit {
    
     this.translate.use(this.nextlang);
     this.language = this.nextlang;
-     this.langmassage();
     console.log('fb:'+this.nextlang);
+     this.langmassage();
+     console.log('fb:'+this.nextlang);
   }
   langmassage(){
     if(this.language == 'en'){

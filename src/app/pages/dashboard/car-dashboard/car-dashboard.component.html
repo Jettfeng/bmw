@@ -12,22 +12,22 @@
     <table class="uk-table uk-table-justify uk-table-divider   ">
         <thead>
             <tr>
-                <th>License plate</th>
-                <th>Current Station</th>
-                <th>Time in station </th>
-                    <th>Total time from arrival</th>
+                <th>{{'license plate'|translate}}</th>
+                <th>{{'current'|translate}} {{'station'|translate}}</th>
+                <th>{{'time in station'|translate}}</th>
+                    <th>{{'total time from arrival'|translate}}</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>xalw123 </td>
-                <td>-carsdf</td>
-                <td>-carsd</td>
-                <td>carsdfcarsdf</td>
+        <tbody *ngFor="let car of cars; let i = index"> 
+            <tr >
+                <td>{{car.license_plate}} </td>
+                <td>{{'current'|translate}} {{'station'|translate}}</td>
+                <td>{{car.stationTime}} {{'minutes'|translate}}</td>
+                <td>{{car.totalTime}} {{'minutes'|translate}}</td>
             </tr>
             <tr >
-                <td colspan="4"><button class="uk-button uk-button-default" type="button">edit</button> </td>
-                      </tr>
+                <td colspan="4"><button class="uk-button uk-button-default" type="button" (click)="timeline(car.id)" >{{'view'|translate}} {{'timeline'|translate}}</button> </td>
+            </tr>
         </tbody>
     </table>
     

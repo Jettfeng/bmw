@@ -4,56 +4,33 @@
 </app-header> -->
 <div class="uk-container register-wrap">
   <div class="uk-margin-top" uk-grid>
-    <div class="uk-width-1-3 uk-text-center uk-text-emphasis">Cancel</div>
-    <!-- <div class="uk-width-1-4"></div> -->
+    <div class="uk-width-1-3 uk-text-center uk-text-emphasis"  (click)="cancelCar()">{{'cancel'|translate}}</div>
+    
     <div class="uk-width-1-3"></div>
     <div class="uk-width-1-3 uk-text-center">
-      <button class="uk-button-primary save-btn">Save</button>
+      <button class="uk-button-primary save-btn" (click)="registerCar()">{{'register'|translate}}</button>
     </div>
+ 
   </div>
   <div
     class="uk-width-1-1 register-padding uk-text-emphasis uk-margin-large-top uk-text-large"
   >
-    Register
+   {{'register'|translate}} {{'car'|translate}}
   </div>
   <div class="uk-margin-top" uk-grid>
     <div class="uk-width-1-2 uk-padding-right">
-      <input class="uk-search-input grayBg input-padding-left uk-text-emphasis" type="search" placeholder="*License plate" />
+      <input class="uk-search-input grayBg input-padding-left uk-text-emphasis" type="text" name="licensePlate" id="licensePlate" type="text" [(ngModel)]="car.license_plate" placeholder="*{{'license plate'|translate}}" />
     </div>
-    <!-- <div class="uk-width-1-2"> -->
+    
     <div class="uk-form-controls uk-width-1-2">
-      <select class="uk-select uk-form-small grayBg uk-text-emphasis" id="form-stacked-select">
-        <option class="uk-form-small grayBg uk-text-emphasis">Option 01</option>
-        <option class="uk-form-small grayBg uk-text-emphasis">Option 02</option>
+      
+      <select  class="uk-select uk-form-small grayBg uk-text-emphasis" id="beacon" name="beacon"  [(ngModel)]="car.beacon_name"  >
+          <option class="uk-form-small grayBg uk-text-emphasis" *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
       </select>
     </div>
-    <!-- </div> -->
+     
   </div>
-  <!-- <form class="uk-form-stacked">
-        <div class="uk-margin">
-           
-            <label class="uk-form-label" for="licensePlate">*{{'license plate'|translate}}</label>
-            <div class="uk-form-controls">
-                <input class="uk-input" name="licensePlate" id="licensePlate" type="text" [(ngModel)]="car.license_plate" />
-            </div>
-        </div>
-      
-     <div class="uk-margin">
-        <label class="uk-form-label" for="beacont">*{{'beacon'|translate}}{{'name'|translate}}</label>
-        <div class="uk-form-controls">
-           
-            <select class="uk-select"  id="beacon" name="beacon"  [(ngModel)]="car.beacon_name">
-                    <option *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
-                </select>
-            </div>
-    </div>
-
-
-        <div class="uk-container uk-text-right uk-margin-large-bottom">
-            <button class="uk-button uk-button-default uk-border-rounded" (click)="registerCar()">{{'register'|translate}}</button>
-            <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelCar()">{{'cancel'|translate}}</button>
-        </div>
-    </form> -->
+ 
 </div>
 
 <app-confirm-modal

@@ -20,7 +20,7 @@
     <div uk-grid>
       <div class="uk-width-1-2 uk-text-emphasis" for="username">*{{'username'|translate}}</div>
       <div class="uk-width-1-2 uk-padding-remove">
-        <input class="uk-search-input uk-text-emphasis pad4" type="text" name="username" id="username" type="text"
+        <input class="uk-search-input uk-text-emphasis pad4" style="background-color:#fff;" type="text" name="username" id="username" type="text"
           [(ngModel)]="user.username" disabled />
       </div>
     </div>
@@ -28,15 +28,15 @@
       <div class="uk-width-1-2 uk-text-emphasis" for="password">{{'new'|translate}} {{'password'|translate}}</div>
       <div class="uk-width-1-2 uk-padding-remove">
         <input class="uk-search-input uk-text-emphasis pad4" type="text" name="password" id="password" type="password"
-          [(ngModel)]="user.password">
-        />
+          [(ngModel)]="user.password" placeholder="{{'Enter'|translate}} {{'New'|translate}} {{'password'|translate}}">
+          
       </div>
     </div>
     <div uk-grid class="uk-margin-large-bottom">
       <div class="uk-width-1-2 uk-text-emphasis">*{{'Confirm'|translate}}</div>
       <div class="uk-width-1-2 uk-padding-remove">
         <input class="uk-search-input uk-text-emphasis pad4" type="text" name="password-reply" id="password-reply" type="password"
-          [(ngModel)]="user.passwordReply" />
+          [(ngModel)]="user.passwordReply"  placeholder="{{'reply'|translate}} {{'new'|translate}} {{'password'|translate}}" />
       </div>
     </div>
     <div class="uk-margin-top">&nbsp;</div>

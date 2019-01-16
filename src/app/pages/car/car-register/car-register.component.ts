@@ -18,14 +18,14 @@ export class CarRegisterComponent implements OnInit {
   }
   dealerId = '';
   loading = false;
- 
+   def_beacon_name='*'+this.translate.instant("Select Beacon");
   beacons = [];
   car = {
     license_plate:'',
     brand:'',
     model:'',
     color:'',
-    beacon_name:'',
+    beacon_name:('*'+this.translate.instant("Select Beacon")),
     dealer_id: ','
   };
 
@@ -43,7 +43,14 @@ export class CarRegisterComponent implements OnInit {
     this.carService.beaconlist(this.dealerId,0,1000)
       .then((res:any)=>{
         console.log(res.data.beacon);
+        let de_car={
+          　　name:this.car.beacon_name
+          };
+        
         this.beacons = res.data.beacon;
+        this.beacons.unshift(de_car);
+     //   new Object(){name:this.translate.instant("Select Beacon")
+      //  this.beacons.shift(},0)//serviceagent1
         this.loading = false;
       })
       .catch((err:any)=>{
@@ -95,7 +102,7 @@ export class CarRegisterComponent implements OnInit {
       return;
     }
      
-    if(this.car.beacon_name == ""){
+    if(this.car.beacon_name == "" || this.car.beacon_name==this.def_beacon_name){
       UIkit.modal(_elementId).hide();
       this.loading = false;
       UIkit.notification({

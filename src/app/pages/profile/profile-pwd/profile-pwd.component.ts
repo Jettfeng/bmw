@@ -74,7 +74,7 @@ export class ProfilePwdComponent implements OnInit {
   cancelProfile(){
     let _elementId = "#"+this.confirmModal.elementId;
     UIkit.modal(_elementId).$destroy(true);
-    this.router.navigate(['menu']);
+    this.router.navigate(['profile', 'edit']);// this.router.navigate(['menu']);
   }
 
   onClickConfirmModal(event){
@@ -87,7 +87,8 @@ export class ProfilePwdComponent implements OnInit {
           UIkit.modal(_elementId).$destroy(true);
         });
         UIkit.modal(_elementId).hide();
-        this.router.navigate(['menu']);
+      //  this.router.navigate(['menu']);
+        this.router.navigate(['profile', 'edit']);
       }).catch((err:any)=>{
         UIkit.modal(_elementId).hide();
         this.loading=false;

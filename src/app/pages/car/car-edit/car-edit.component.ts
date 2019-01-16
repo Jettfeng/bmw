@@ -20,13 +20,13 @@ export class CarEditComponent implements OnInit {
     detail:this.translate.instant("Do you confirm to update information?"),
     state:"",
   }
-
+  def_beacon_name='*'+this.translate.instant("Select Beacon");
   car = {
     license_plate: '',
     brand: '',
     model: '',
     color: '',
-    beacon_name: '',
+    beacon_name:('*'+this.translate.instant("Select Beacon")),
     dealer_id:'',
     beacon: [],
     timeline: [],
@@ -54,7 +54,14 @@ export class CarEditComponent implements OnInit {
     this.loading=true;
     this.carService.beaconlist(this.dealerId,0,1000)
     .then((res:any)=>{
+      let de_car={
+        　　name:this.car.beacon_name
+        };
+      
       this.beacons = res.data.beacon;
+      this.beacons.unshift(de_car);
+      console.log('aaa');
+        console.log(this.beacons);
     })
     .catch((err:any)=>{
       UIkit.notification({

@@ -44,24 +44,18 @@ export class CarListComponent implements OnInit {
     id:'',
     title:'',
     beaconName: '',
+  
     form:{
       beaconId:'',
     }
   }
-  role = {
-    admin: false,
-    supervisor: false,
-    technician: false,
-    analyst: false,
-  }
+
   constructor(private router : Router, private activeRoute : ActivatedRoute, private carService: CarService, private translate: TranslateService) { 
     this.dealerId = activeRoute.snapshot.params['dealerId'];
     this.car.dealer_id = activeRoute.snapshot.params['dealerId'];
   }
 
   ngOnInit() {
-    let userType = localStorage.getItem('userType');
-    this.role[userType] = true;
     this.loadCar();
   }
 
@@ -98,7 +92,6 @@ export class CarListComponent implements OnInit {
           }
         }
         this.cars = res.data.car;
-        console.log(this.cars);
         this.loading = false;
 
       }).catch((err:any)=>{
@@ -122,7 +115,7 @@ export class CarListComponent implements OnInit {
 
   registerCar(){
     let _elementId = "#"+this.confirmModal.elementId;
-   // UIkit.modal('#modal-deregister').$destroy(true);
+    UIkit.modal('#modal-deregister').$destroy(true);
     UIkit.modal(_elementId).$destroy(true);
     this.router.navigate(['car', 'register', this.dealerId]);
     // let _elementId = "#"+this.confirmModal.elementId;
@@ -141,7 +134,7 @@ export class CarListComponent implements OnInit {
 
   editCar(carId){
     let _elementId = "#"+this.confirmModal.elementId;
-   // UIkit.modal('#modal-deregister').$destroy(true);
+    UIkit.modal('#modal-deregister').$destroy(true);
     UIkit.modal(_elementId).$destroy(true);
     this.router.navigate(['car', 'edit', this.dealerId, carId]);
   }
@@ -150,18 +143,19 @@ export class CarListComponent implements OnInit {
     this.modalDeregister.id = id;
     this.modalDeregister.title = licensePlate;
     this.modalDeregister.beaconName = beaconName;
- //   UIkit.modal('#modal-deregister').show();
+    console.log(this.modalDeregister.title);
+    UIkit.modal('#modal-deregister').show();
   }
 
   deregister(){
     if(this.modalDeregister.form.beaconId ==  this.modalDeregister.beaconName){
       this.loading = true;
       this.carService.deregister(this.modalDeregister.id).then((res:any)=>{
-     //   UIkit.modal('#modal-deregister').hide();
+        UIkit.modal('#modal-deregister').hide();
         this.loading = false;
         this.loadCar();
       }).catch((err:any)=>{
-     //   UIkit.modal('#modal-deregister').hide();
+        UIkit.modal('#modal-deregister').hide();
         this.loading = false;
         UIkit.notification({
           message: this.translate.instant('Cannot deregister Car!!!'),
@@ -171,7 +165,7 @@ export class CarListComponent implements OnInit {
       })
     }else{
       this.modalDeregister.form.beaconId = "";
-    //  UIkit.modal('#modal-deregister').hide(); 
+      UIkit.modal('#modal-deregister').hide(); 
       UIkit.notification({
         message: this.translate.instant('Beacon name not match'),
         status: 'warning',
@@ -181,14 +175,14 @@ export class CarListComponent implements OnInit {
   }
 
   cancelDeregister(){
-   // UIkit.modal('#modal-deregister').hide();
+    UIkit.modal('#modal-deregister').hide();
 
   }
 
   onHeaderClick(event){
     let _elementId = "#"+this.confirmModal.elementId;
     if(event == 'back'){
-    //  UIkit.modal('#modal-deregister').$destroy(true);
+      UIkit.modal('#modal-deregister').$destroy(true);
       UIkit.modal(_elementId).$destroy(true);
       this.router.navigate(['menu']);
     }
