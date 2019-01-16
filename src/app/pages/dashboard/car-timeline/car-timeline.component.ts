@@ -80,10 +80,9 @@ export class CarTimelineComponent implements OnInit {
       this.loading = false;
     });
   }
-
-  onHeaderClick(event){
-    if(event == 'back'){
-      this.router.navigate(['dashboard', 'car', this.dealerId]);
-    }
+  cancelTime(){
+    console.log();
+    this.router.navigate(['dashboard', 'car', this.dealerId]);
   }
+  
 }
