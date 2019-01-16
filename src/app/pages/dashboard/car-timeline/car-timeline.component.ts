@@ -42,6 +42,7 @@ export class CarTimelineComponent implements OnInit {
   loadCar(){
     this.loading = true;
     this.dashboardService.timeline(this.carId).then((res:any)=>{
+      console.log(res.data);
       this.car = res.data.car[0];
       let tmpTimeline = res.data.car[0].dashboard;
       tmpTimeline.forEach((cartime:any) => {
@@ -81,7 +82,7 @@ export class CarTimelineComponent implements OnInit {
     });
   }
   cancelTime(){
-    console.log();
+    console.log('hhhhhhhhhhhhhhhhhhh');
     this.router.navigate(['dashboard', 'car', this.dealerId]);
   }
   
