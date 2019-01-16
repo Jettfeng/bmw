@@ -1,13 +1,35 @@
- 
-    切片car-register汽车页面代码
-   
-  
+<!-- 切片car-register汽车页面代码 -->
 
-<app-header>
-</app-header>
-<div class="uk-container">
-   
-    <form class="uk-form-stacked">
+<!-- <app-header>
+</app-header> -->
+<div class="uk-container register-wrap">
+  <div class="uk-margin-top" uk-grid>
+    <div class="uk-width-1-3 uk-text-center uk-text-emphasis">Cancel</div>
+    <!-- <div class="uk-width-1-4"></div> -->
+    <div class="uk-width-1-3"></div>
+    <div class="uk-width-1-3 uk-text-center">
+      <button class="uk-button-primary save-btn">Save</button>
+    </div>
+  </div>
+  <div
+    class="uk-width-1-1 register-padding uk-text-emphasis uk-margin-large-top uk-text-large"
+  >
+    Register
+  </div>
+  <div class="uk-margin-top" uk-grid>
+    <div class="uk-width-1-2 uk-padding-right">
+      <input class="uk-search-input grayBg input-padding-left uk-text-emphasis" type="search" placeholder="*License plate" />
+    </div>
+    <!-- <div class="uk-width-1-2"> -->
+    <div class="uk-form-controls uk-width-1-2">
+      <select class="uk-select uk-form-small grayBg uk-text-emphasis" id="form-stacked-select">
+        <option class="uk-form-small grayBg uk-text-emphasis">Option 01</option>
+        <option class="uk-form-small grayBg uk-text-emphasis">Option 02</option>
+      </select>
+    </div>
+    <!-- </div> -->
+  </div>
+  <!-- <form class="uk-form-stacked">
         <div class="uk-margin">
            
             <label class="uk-form-label" for="licensePlate">*{{'license plate'|translate}}</label>
@@ -31,14 +53,15 @@
             <button class="uk-button uk-button-default uk-border-rounded" (click)="registerCar()">{{'register'|translate}}</button>
             <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelCar()">{{'cancel'|translate}}</button>
         </div>
-    </form>
+    </form> -->
 </div>
 
- 
-<app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
-
- 
+<app-confirm-modal
+  [elementId]="confirmModal.elementId"
+  [detail]="confirmModal.detail"
+  (onClick)="onClickConfirmModal($event)"
+></app-confirm-modal>
 
 <div class="loading" *ngIf="loading">
-    <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+  <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
 </div>

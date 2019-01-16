@@ -1,65 +1,93 @@
-
- 
-<div class="uk-container"  >
-  <nav class="uk-navbar-container uk-margin" uk-navbar style=" background:none;">
+<div class="uk-container container-bg">
+  <nav
+    class="uk-navbar-container uk-margin"
+    uk-navbar
+    style=" background:none;"
+  >
     <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" >{{'car'|translate}} {{'management'|translate}}</a>
+      <a class="uk-navbar-item uk-logo"
+        >{{ "car" | translate }} {{ "management" | translate }}</a
+      >
     </div>
     <div class="uk-navbar-right">
-				<button class="uk-button uk-button-small uk-button-primary uk-border-rounded" (click)="registerCar()">{{'register'|translate}} {{'car'|translate}}</button>
-
+      <button
+        class="uk-button uk-button-small uk-button-primary uk-border-rounded bluebg"
+        (click)="registerCar()"
+      >
+        {{ "register" | translate }} {{ "car" | translate }}
+      </button>
     </div>
-	</nav>
-	
-	<table class="uk-table uk-table-justify uk-table-divider">
-			<thead>
-					<tr>
-							<th class="uk-width-small">License plate</th>
-							<th>Beacon Name</th>
-							<th> </th>
-						 
-					</tr>
-			</thead>
-			<tbody>
-					<tr>
-							<td>xalw123 </td>
-							<td> -carsdf</td>
-							<td><button class="uk-button uk-button-default" type="button">edit</button></td>
-					</tr>
-					<tr>
-							<td>xalw123 </td>
-							<td> -carsdf</td>
-							<td><button class="uk-button uk-button-default" type="button">edit</button></td>
-					</tr>
-			</tbody>
-	</table>
-	<div class=" uk-margin">
-			<ul class="uk-pagination uk-flex-center" uk-margin>
-			<li *ngIf="pageController.pageIndex != 1">
-				<a (click)="changePageonClick(false,-1)">
-				<span uk-pagination-previous></span>
-				</a>
-			</li>
-			<li *ngIf="pageController.pageIndex > 4" class="uk-disabled">
-				<span>...</span>
-			</li>
-			<li *ngFor="let index of pageController.pageArray" [class.uk-active]="index==pageController.pageIndex">
-				<a (click)="changePageonClick(true,index)">{{index}}</a>
-			</li>
-			<!-- <li class="uk-active"><span>4</span></li> -->
-			<li *ngIf="pageController.pageNumber - pageController.pageIndex > 3" class="uk-disabled">
-				<span>...</span>
-			</li>
-			<li *ngIf="pageController.pageIndex != pageController.pageNumber">
-				<a (click)="changePageonClick(false,1)">
-				<span uk-pagination-next></span>
-				</a>
-			</li>
-			</ul>
-		</div>
-	</div>
-	<app-footer></app-footer>
-  <!-- <fieldset class="uk-fieldset uk-background-muted uk-padding-small uk-margin">
+  </nav>
+  <table class="uk-table uk-table-divider table-style thead-style uk-padding-remove-bottom">
+    <thead class="thead-style">
+      <tr>
+        <th class="uk-text-emphasis uk-width-1-2">License plate</th>
+        <th class="uk-text-emphasis uk-width-1-2">Beacon Name</th>
+      </tr>
+    </thead>
+  </table>
+  <table class="uk-table uk-table-divider table-style thead-style">
+    <!-- <thead class="thead-style">
+      <tr>
+        <th class="uk-text-emphasis uk-width-1-2">License plate</th>
+				<th class="uk-text-emphasis uk-width-1-2">Beacon Name</th>
+				<th></th>
+      </tr>
+    </thead> -->
+    <tbody>
+      <tr>
+        <td>xalw123</td>
+        <td>-carsdf</td>
+        <td>
+          <button class="uk-button uk-button-default" type="button">
+            edit
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>xalw123</td>
+        <td>-carsdf</td>
+        <td>
+          <button class="uk-button uk-button-default" type="button">
+            edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class=" uk-margin">
+    <ul class="uk-pagination uk-flex-center" uk-margin>
+      <li *ngIf="pageController.pageIndex != 1">
+        <a (click)="changePageonClick(false, -1)">
+          <span uk-pagination-previous></span>
+        </a>
+      </li>
+      <li *ngIf="pageController.pageIndex > 4" class="uk-disabled">
+        <span>...</span>
+      </li>
+      <li
+        *ngFor="let index of pageController.pageArray"
+        [class.uk-active]="index == pageController.pageIndex"
+      >
+        <a (click)="changePageonClick(true, index)">{{ index }}</a>
+      </li>
+      <!-- <li class="uk-active"><span>4</span></li> -->
+      <li
+        *ngIf="pageController.pageNumber - pageController.pageIndex > 3"
+        class="uk-disabled"
+      >
+        <span>...</span>
+      </li>
+      <li *ngIf="pageController.pageIndex != pageController.pageNumber">
+        <a (click)="changePageonClick(false, 1)">
+          <span uk-pagination-next></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>
+<!-- <fieldset class="uk-fieldset uk-background-muted uk-padding-small uk-margin">
 		<ul uk-accordion>
 	    <li *ngFor="let car of cars">
         <a class="uk-accordion-title" href="#">{{car.license_plate}}</a>
@@ -73,8 +101,7 @@
 	</ul>
 </fieldset> -->
 
-			<!--
-  <div class="uk-card uk-card-default uk-margin" style="border:1px solid #ddd;"  *ngFor="let car of cars">
+<!-- <div class="uk-card uk-card-default uk-margin" style="border:1px solid #ddd;"  *ngFor="let car of cars">
     <div class="uk-card-header uk-background-muted">
 		<div class="uk-width-expand">
 			<h3 class="uk-card-title uk-margin-remove-bottom">{{car.license_plate}}</h3>
@@ -101,12 +128,14 @@
           <button class="uk-button uk-button-default uk-button-small uk-border-rounded" (click)="editCar(car.id)">{{'edit'|translate}}</button>
           <button class="uk-button uk-button-danger uk-button-small uk-border-rounded uk-margin-left" (click)="deregisterCar(car.id, car.license_plate, car.beacon.name)">{{'deregister'|translate}}</button>
 		</div>
-  </div> 
-			-->
+  </div>  -->
 
-<app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
+<app-confirm-modal
+  [elementId]="confirmModal.elementId"
+  [detail]="confirmModal.detail"
+  (onClick)="onClickConfirmModal($event)"
+></app-confirm-modal>
 
- 
 <div class="loading" *ngIf="loading">
   <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
 </div>

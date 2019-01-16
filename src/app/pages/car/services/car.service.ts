@@ -45,10 +45,13 @@ export class CarService {
           'Content-Type':  "application/json; charset=UTF-8",
         })
       };
+ 
       let params  = {
         dealer_id: dealer_id,
         limit: limit,
         offset: offset,
+        direct_sort:"acs",
+        title_sort:"license_plate"
       };
       this.http.post(apiURL,params,httpOptions)
         .toPromise()
