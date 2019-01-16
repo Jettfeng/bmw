@@ -1,15 +1,14 @@
 <div class="uk-container">
-    <nav class="uk-navbar-container uk-margin" uk-navbar style=" background:none;">
+    <nav class="uk-navbar-container container-fixed uk-margin uk-margin-remove-bottom" uk-navbar>
       <div class="uk-navbar-left">
         <a class="uk-navbar-item uk-logo" >{{'Dashboard'|translate}} {{'management'|translate}}</a>
       </div>
-      <div class="uk-navbar-right">
+      <div class="uk-navbar-right uk-padding uk-padding-remove-left">
           <button class="uk-button uk-button-small uk-button-primary uk-border-rounded" (click)="configNotification()">{{'notification'|translate}}</button>
-  
       </div>
     </nav>
-    
-    <table class="uk-table  uk-table-divider  uk-table-middle "  style="background-color: #f5f5f5; ">
+    <div class="uk-medium-large">&nbsp;</div>
+    <table class="uk-table  uk-table-divider uk-margin-remove-top uk-table-middle "  style="background-color: #f5f5f5; ">
         <thead    >
             <tr  style="background-color:#f7f7f7; ">
                 <th  >{{'license plate'|translate}}</th>
