@@ -38,7 +38,7 @@
 				<th class="uk-text-emphasis uk-width-1-3"></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="addLine">
       <tr *ngFor="let car of cars" style="border-color: #ffffff;" >
         <td>{{car.license_plate}}</td>
         <td>{{car.beacon.name}}</td>
@@ -50,8 +50,7 @@
               {{'deregister'|translate}}
           </button>
         </td>
-      </tr>
-      
+      </tr> 
     </tbody>
   </table>
 </div>
