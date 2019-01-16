@@ -1,6 +1,6 @@
 <div class="timelinewrap">
   <div class="uk-padding-small uk-padding-remove-bottom">
-    <span class="uk-margin-small-right uk-icon" uk-icon="chevron-left"
+    <span class="uk-margin-small-right uk-icon" uk-icon="chevron-left" (click)="cancelTime()"
       ><svg
         width="20"
         height="20"
@@ -9,47 +9,100 @@
         data-svg="chevron-left"
       ></svg></span>
   </div>
-  <div class="uk-text-emphasis uk-padding uk-text-large">Timeline</div>
+  <div class="uk-text-emphasis uk-padding uk-text-large">{{'timeline'|translate}}</div>
   <div class="uk-container uk-padding-small uk-padding-remove-top uk-padding-remove-bottom">
     <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-padding-small topcontainer">
       <button class="uk-button uk-button-default uk-button-small btn-style uk-margin-small-bottom">Information</button>
       <dl class="uk-description-list uk-margin-remove-top">
-        <dt class="uk-text-emphasis uk-margin-small-bottom">status</dt>
-        <dd class="uk-text-emphasis uk-margin-small-bottom">License plate</dd>
-        <dd class="uk-text-emphasis uk-margin-small-bottom">Brand</dd>
-        <dd class="uk-text-emphasis uk-margin-small-bottom">Model</dd>
-        <dd class="uk-text-emphasis">Color</dd>
+        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'status'|translate}}</dt>
+        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngFor="let status of car.status"  > {{status}}</dd>
+        <dd class="uk-text-emphasis uk-margin-small-bottom">{{'license plate'|translate}}</dd>
+        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.license_plate" >{{car.license_plate}}</dd>
+        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'brand'|translate}}</dt>
+        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.brand" >{{car.brand}}</dd>
+        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'model'|translate}}</dt>
+        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.model" >{{car.model}}</dd>
+        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'color'|translate}}</dt>
+        <dd class="uk-text-emphasis  "   *ngIf="car.color">{{car.color}}</dd>
+         
+       
+
       </dl>
     </div>
   </div>
-  <div class="uk-text-emphasis uk-padding uk-text-large">Timeline</div>
+
+   
+
+  <div class="uk-text-emphasis uk-padding uk-text-large">{{'timeline'|translate}}</div>
   <div class="uk-container uk-padding-small uk-padding-remove-top uk-padding-remove-bottom">
     <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-padding-small bottomcontainer">
-      <table class="uk-table uk-table-divider table-style thead-style uk-table-middle uk-margin-remove-top">
+      <table class="uk-table uk-table-middle uk-table-divider table-style thead-style uk-table-middle uk-margin-remove-top">
         <thead class="thead-style">
           <tr>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Station</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center"> Arrival</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Departure</th>
-            <th class="uk-padding-remove-bottom uk-padding-remove-top uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Use time<br>(Minutes)</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Status</th>
+            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'station'|translate}}</th>
+            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center"> {{'arrival time'|translate}}</th>
+            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'departure time'|translate}}</th>
+            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'used time'|translate}} <br/> ({{'minutes'|translate}})</th>
+            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'status'|translate}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr *ngFor="let timeline of car.timeline">
             <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Station</th>
             <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center"> Arrival</th>
             <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Departure</th>
             <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Use time</th>
             <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Status</th>
+         
+          </tr> -->
+          <tr *ngFor="let timeline of car.timeline" >
+            <ng-container *ngIf="timeline.station_id != 0">
+              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                {{timeline.station.name}}
+              </td>
+              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                {{timeline.arrival_at}}
+              </td>
+              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                {{timeline.departure_at}}
+              </td>
+              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                {{timeline.stationTime}}
+              </td>
+              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                <div *ngIf="timeline.status != ''">
+                  <button class="uk-button uk-button-danger uk-button-small" style="width: 100px;">
+                    {{timeline.status}}
+                  </button>
+                </div>
+                <div *ngIf="timeline.status == ''">
+                    OK
+                </div>
+              </td>
+            </ng-container>
+            
+            <ng-container *ngIf="timeline.station_id == 0">
+                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                  {{"Register"|translate}}
+                </td>
+                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                  {{timeline.arrival_at}}
+                </td>
+                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                  -
+                </td>
+                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                  -
+                </td>
+                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
+                  -
+                </td>
+              </ng-container>
           </tr>
-          <tr>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Station</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center"> Arrival</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Departure</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Use time</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Status</th>
-          </tr>
+
+
+
+
         </tbody>
       </table>
     </div>
