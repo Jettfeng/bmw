@@ -39,3 +39,17 @@
     border-radius: 6px !important;
     margin-top: 8px;
 }
+@media screen and (max-width:370px){
+    .small-padding{
+        padding: 10px 12px 20px 12px !important;
+    }
+    .small-font{
+        font-size: 14px;
+    }
+    .small-margin{
+        margin-bottom: 35px !important;
+    }
+    .small-margin-bottom{
+        margin-bottom: 25px !important;
+    }
+}
