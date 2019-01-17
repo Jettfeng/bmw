@@ -9,11 +9,11 @@
         data-svg="chevron-left"
       ></svg></span>
   </div>
-  <div class="uk-text-emphasis uk-padding uk-text-large">{{'timeline'|translate}}</div>
+  <div class="uk-text-emphasis timeline-samll-font uk-padding uk-text-large">{{'timeline'|translate}}</div>
   <div class="uk-container uk-padding-small uk-padding-remove-top uk-padding-remove-bottom">
     <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-padding-small topcontainer">
       <button class="uk-button uk-button-default uk-button-small btn-style uk-margin-small-bottom">Information</button>
-      <dl class="uk-description-list uk-margin-remove-top">
+      <dl class="uk-description-list uk-margin-remove-top dl-style">
         <dt class="uk-text-emphasis uk-margin-small-bottom">{{'status'|translate}}</dt>
         <dd class="uk-text-emphasis uk-margin-small-bottom" *ngFor="let status of car.status"  > {{status}}</dd>
         <dd class="uk-text-emphasis uk-margin-small-bottom">{{'license plate'|translate}}</dd>
@@ -30,17 +30,17 @@
 
    
 
-  <div class="uk-text-emphasis uk-padding uk-text-large">{{'timeline'|translate}}</div>
+  <div class="uk-text-emphasis timeline-samll-font uk-padding uk-text-large">{{'timeline'|translate}}</div>
   <div class="uk-container uk-padding-small uk-padding-remove-top uk-padding-remove-bottom">
     <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-padding-small bottomcontainer">
       <table class="uk-table uk-table-middle uk-table-divider table-style thead-style uk-table-middle uk-margin-remove-top">
         <thead class="thead-style">
           <tr>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'station'|translate}}</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center"> {{'arrival time'|translate}}</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'departure time'|translate}}</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'used time'|translate}} <br/> ({{'minutes'|translate}})</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'status'|translate}}</th>
+            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'station'|translate}}</th>
+            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center"> {{'arrival time'|translate}}</th>
+            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'departure time'|translate}}</th>
+            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'used time'|translate}} <br/> ({{'minutes'|translate}})</th>
+            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'status'|translate}}</th>
           </tr>
         </thead>
         <tbody>
