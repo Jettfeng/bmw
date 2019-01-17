@@ -60,6 +60,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userId', res.user.id);
           localStorage.setItem('dealerId', res.user.dealer_id);
           this.router.navigate(['menu']);
+         // this.router.navigate(['menu']);
+         this.router.navigate(['dashboard', 'car', res.user.dealer_id]);
         }
     }).catch(err=>{
       this.alert.show = true;
