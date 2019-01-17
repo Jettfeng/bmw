@@ -181,7 +181,8 @@
 
     "Menu": "目录",
     "en": "English",
-    "zh": "简体中文"
-    
-
+    "zh": "简体中文",
+    "Are you confirm to":"你确定",
+    "Register":"注册",
+    "Select Beacon":"选择 Beacon"
 }

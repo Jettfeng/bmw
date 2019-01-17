@@ -140,7 +140,7 @@
 	"brand cannot empty":"brand cannot empty",
 	"Model cannot empty":"Model cannot empty",
 	"Color cannot empty":"Color cannot empty",
-	"Beacon Name cannot empty":"Beacon Name cannot empt",
+	"Beacon Name cannot empty":"Beacon Name cannot empty",
 	"Do you confirm to update car information?":"Do you confirm to update car information?",
 	"Do you confirm to register":"Do you confirm to register",
 	"Cannot emptry!!!":"Cannot empty!!!",
@@ -177,8 +177,10 @@
 	"Please select user role":"Please select user role",
 	"Supervisor":"Supervisor",
 	"Analyst":"Analyst",
-	"technician":"technician",
-	
+    "technician":"technician",
+    "Are you confirm to":"Are you confirm to",
+    "Select Beacon":"Select Beacon",
+    "Register":"Register",
     "Menu": "Menu",
     "en": "English",
     "zh": "简体中文"
