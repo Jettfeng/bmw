@@ -1,37 +1,62 @@
 <div class="uk-container">
-    <nav class="uk-navbar-container  uk-margin uk-margin-remove-bottom" uk-navbar style="background:none;" >
-      <div class="uk-navbar-left">
-        <a class="uk-navbar-item uk-logo" >{{'dashboard'|translate}}</a>
-      </div>
-      <div class="uk-navbar-right uk-padding uk-padding-remove-left">
-          <button class="uk-button uk-button-small uk-button-primary uk-border-rounded" (click)="configNotification()">{{'notification'|translate}}</button>
-      </div>
-    </nav>
-    <div class="uk-medium-large">&nbsp;</div>
-    <table class="uk-table  uk-table-divider uk-margin-remove-top uk-table-middle "  style="background-color: #f5f5f5;box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.15); ">
-        <thead  class="thead-style"  style="background-color:#f7f7f7; " >
-            <tr  >
-                <th  >{{'license plate'|translate}}</th>
-                <th >{{'current'|translate}} {{'station'|translate}}</th>
-                <th >{{'time in station'|translate}}</th>
-                 <th  >{{'total time from arrival'|translate}}</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let car of cars; let i = index" style="background-color:#f5f5f5; "> 
-            <tr style="border-top: none;border-bottom: 1px solid #ffffff;" >
-                <td>{{car.license_plate}} </td>
-                <td>{{'current'|translate}} {{'station'|translate}}</td>
-                <td>{{car.stationTime}} {{'minutes'|translate}}</td>
-                <td>{{car.totalTime}} {{'minutes'|translate}}</td>
-            </tr>
-            <tr  style=" border-top: none;border-bottom: 1px solid #ffffff;" >
-                <td colspan="4"><button class="uk-button uk-button-default" type="button" (click)="timeline(car.id)" >{{'view'|translate}} {{'timeline'|translate}}</button> </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="uk-margin-large">&nbsp;</div>
+  <nav
+    class="uk-navbar-container  uk-margin uk-margin-remove-bottom"
+    uk-navbar
+    style="background:none;"
+  >
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo uk-text-emphasis">{{
+        "dashboard" | translate
+      }}</a>
     </div>
-    <app-footer></app-footer>
+    <div class="uk-navbar-right uk-padding uk-padding-remove-left">
+      <button
+        class="uk-button notification-style uk-button-small uk-button-primary uk-border-rounded uk-text-emphasis"
+        (click)="configNotification()"
+      >
+        {{ "notification" | translate }}
+      </button>
+    </div>
+  </nav>
+  <div class="uk-medium-large">&nbsp;</div>
+  <table
+    class="uk-table  uk-table-divider uk-margin-remove-top uk-table-middle "
+    style="background-color: #f5f5f5;box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.15); "
+  >
+    <thead class="thead-style" style="background-color:#f7f7f7; ">
+      <tr>
+        <th>{{ "license  plate" | translate }}</th>
+        <th>{{ "current" | translate }} {{ "station" | translate }}</th>
+        <th>{{ "time in station" | translate }}</th>
+        <th>{{ "total time from arrival" | translate }}</th>
+      </tr>
+    </thead>
+    <tbody
+      *ngFor="let car of cars; let i = index"
+      style="background-color:#f5f5f5; "
+    >
+      <tr style="border-top: none;border-bottom: 1px solid #ffffff;">
+        <td>{{ car.license_plate }}</td>
+        <td>{{ "current" | translate }} {{ "station" | translate }}</td>
+        <td>{{ car.stationTime }} {{ "minutes" | translate }}</td>
+        <td>{{ car.totalTime }} {{ "minutes" | translate }}</td>
+      </tr>
+      <tr style=" border-top: none;border-bottom: 1px solid #ffffff;">
+        <td colspan="4">
+          <button
+            class="uk-button uk-button-default"
+            type="button"
+            (click)="timeline(car.id)"
+          >
+            {{ "view" | translate }} {{ "timeline" | translate }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="uk-margin-large">&nbsp;</div>
+</div>
+<app-footer></app-footer>
 
 <!-- <app-header  [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
 <div    class="uk-container uk-margin-xlarge-bottom">
@@ -74,12 +99,12 @@
           <span *ngIf="car.currentStatus != ''">
             <button class="uk-button uk-button-danger uk-button-small" style="width: 100px;">
 						</button> -->
-						<!-- <span uk-icon="warning" style="position: relative;color:red; bottom: 2px;"></span>
+<!-- <span uk-icon="warning" style="position: relative;color:red; bottom: 2px;"></span>
           </span>
           <button class="uk-button uk-button-mute uk-button-small uk-border-rounded uk-margin-left" (click)="timeline(car.id)">{{'view'|translate}} {{'timeline'|translate}}</button>
 	</div>
   </div> 
-</div> -->  
+</div> -->
 
 <div class="loading" *ngIf="loading">
   <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>

@@ -5,3 +5,20 @@
     left: 0;
     background: #ffffff;
 }
+.notification-style{
+    background: #d9d9da
+}
+.thead-style{
+    height: 74px !important;
+}
+// .thead-style tr{
+//     width: 100% !important;
+//     display: flex !important;
+// }
+.thead-style tr th{
+    // width: 20% !important;
+   padding-left: 0 !important;
+   padding-right: 0 !important;
+   text-align: center;
+//    float: left;
+}
