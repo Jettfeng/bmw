@@ -184,5 +184,10 @@
     "zh": "简体中文",
     "Are you confirm to":"你确定",
     "Register":"注册",
+    "Set Password":"设置密码",
+    "New Password":"新密码",
+    "Enter New Password":"输入新密码",
+    "Reply Password":"重复密码",
+    
     "Select Beacon":"选择 Beacon"
 }
