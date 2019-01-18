@@ -25,10 +25,10 @@
       </div>
     </div>
     <div uk-grid class="uk-margin-large-bottom">
-      <div class="uk-width-1-2 uk-text-emphasis left" for="password">{{'New Password'|translate}}</div>
+      <div class="uk-width-1-2 uk-text-emphasis left" for="password">{{'new'|translate}} {{'password'|translate}}</div>
       <div class="uk-width-1-2 uk-padding-remove">
         <input class="uk-search-input uk-text-emphasis pad4" type="text" name="password" id="password" type="password"
-          [(ngModel)]="user.password" placeholder="{{'Enter New Password'|translate}}">
+          [(ngModel)]="user.password" placeholder="{{'new'|translate}} {{'password'|translate}}">
           
       </div>
     </div>
@@ -36,7 +36,7 @@
       <div class="uk-width-1-2 uk-text-emphasis left">*{{'Confirm'|translate}}</div>
       <div class="uk-width-1-2 uk-padding-remove">
         <input class="uk-search-input uk-text-emphasis pad4" type="text" name="password-reply" id="password-reply" type="password"
-          [(ngModel)]="user.passwordReply"  placeholder="{{'Reply Password'|translate}}" />
+          [(ngModel)]="user.passwordReply"  placeholder="{{'reply'|translate}}  {{'password'|translate}}" />
       </div>
     </div>
     <div class="uk-margin-top">&nbsp;</div>
