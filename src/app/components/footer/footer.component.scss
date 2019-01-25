@@ -57,16 +57,26 @@
   width: 30px !important;
   height: 22px !important;
 }
-@media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
-	.footer-bottom{
-		height: 96px;
-  }
-  .footer-padding{
-		height:114px;
-	}
-}
 .footer-padding{
 	width: 100%;
   height:80px;
-  // border: 1px solid red;
+   
 }
+ 
+@media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+  .footer-padding{
+ 
+    height:114px;
+     
+  }
+  // .footer-bottom{
+  //   height: 96px;
+  //   border: 1px solid red;
+  // }
+  // .footer-padding{
+  //   height:204px;
+  //   background-color: aqua;
+  //   border: 1px solid blue;
+	// }
+}
+
