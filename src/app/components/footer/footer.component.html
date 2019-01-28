@@ -8,15 +8,42 @@
 
 <!-- <div class="footer-bottom uk-margin-top"></div> -->
 
-<div class="footer-padding "  >dddddddddd</div>
+<div class="footer-padding "  ></div>
  
 <!-- <ul class="uk-subnav uk-subnav-divider uk-child-width-1-3 uk-text-center  uk-margin-remove  footer-bottom" >
   <li><a class="uk-text-emphasis" href="javascript:void(0)" (click)="dashboard()">{{'DashBoard'|translate}} {{'Management'|translate}}</a></li>
   <li><a class="uk-text-emphasis" href="javascript:void(0)" (click)="carManagement()">{{'Car'|translate}} {{'Management'|translate}}</a></li>
   <li><a class="uk-text-emphasis" href="javascript:void(0)" (click)="profileManagement()">{{'Profile'|translate}} {{'Management'|translate}}</a></li>
 </ul> -->
+<ul class="footer-bottom" *ngIf="role.admin" >
+  <li>
+    <a class="uk-text-emphasis" href="javascript:void(0)" (click)="dashboard()">
+       <i style=" background-size:100% 100%; background-repeat: no-repeat; background-position: center center; "  data-src="assets/images/dash.png" uk-img ></i>
+      <span class="uk-text-small">{{'dashboard'|translate}}</span>
+    </a>
+  </li>
+  <li>
+    <a class="uk-text-emphasis" href="javascript:void(0)" (click)="dealerManagement()">
+      <i style=" background-size:100% 100%; background-repeat: no-repeat; background-position: center center; " data-src="assets/images/car.png" uk-img ></i>   
+      <span class="uk-text-small">{{'beacon'|translate}}</span>
+  </a>
+</li>
+<li>
+  <a class="uk-text-emphasis" href="javascript:void(0)" (click)="userManagement()">
+    <i style=" background-size:100% 100%; background-repeat: no-repeat; background-position: center center; " data-src="assets/images/car.png" uk-img ></i>   
+    <span class="uk-text-small">{{'user'|translate}}</span>
+</a>
+</li>
 
-<ul class="footer-bottom" >
+  <li>
+    <a class="uk-text-emphasis" href="javascript:void(0)" (click)="profileManagement()">
+      <i style=" background-size:100% 100%; background-repeat: no-repeat; background-position: center center; " data-src="assets/images/proli.png" uk-img ></i>  
+      <span class="uk-text-small">{{'profile'|translate}}</span>
+    </a>
+  </li>
+</ul>
+
+<ul class="footer-bottom" *ngIf="role.service_agent" >
     <li>
       <a class="uk-text-emphasis" href="javascript:void(0)" (click)="dashboard()">
          <i style=" background-size:100% 100%; background-repeat: no-repeat; background-position: center center; "  data-src="assets/images/dash.png" uk-img ></i>
