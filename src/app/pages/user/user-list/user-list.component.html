@@ -1,4 +1,8 @@
-<app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+<!-- <app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
+ -->
+
+ <app-footer></app-footer>
+
 <div class="uk-container">
   <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
@@ -17,16 +21,14 @@
 		<div class="uk-width-expand">
 		  <table class="uk-table uk-table-striped">
 			  <tr>
-				<!-- <td class="uk-text-nowrap">{{'id'|translate}}</td>
-				<td>{{user.id}}</td> -->
+	 
 			  </tr>
 			  <tr>
 				<td class="uk-text-nowrap">{{'username'|translate}}</td>
 				<td>{{user.username}}</td>
 			  </tr>
 			  <tr>
-				<!-- <td class="uk-text-nowrap">{{'fullname'|translate}}</td>
-				<td>{{user.fullname}}</td> -->
+		 
 			  </tr>
 			  <tr>
 				<td class="uk-text-nowrap">{{'position'|translate}}</td>
@@ -54,7 +56,7 @@
     <li *ngFor="let index of pageController.pageArray" [class.uk-active]="index==pageController.pageIndex">
       <a (click)="changePageonClick(true,index)">{{index}}</a>
     </li>
-    <!-- <li class="uk-active"><span>4</span></li> -->
+    
     <li *ngIf="pageController.pageNumber - pageController.pageIndex > 3" class="uk-disabled">
       <span>...</span>
     </li>
