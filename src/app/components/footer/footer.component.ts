@@ -30,8 +30,10 @@ export class FooterComponent implements OnInit {
     this.role[userType] = true;
      
   }
-
-   
+  dealerManagement(){
+    this.router.navigate(['dealer', 'list']);
+  }
+ 
   userManagement(){
     this.router.navigate(['user', 'list', this.dealerId]);
   }
@@ -40,7 +42,13 @@ export class FooterComponent implements OnInit {
     this.router.navigate(['dashboard', 'car', this.dealerId]);
   }
 
- 
+  exportData(){
+    this.router.navigate(['data', 'export', this.dealerId]);
+  }
+  
+  beaconManagement(){
+    this.router.navigate(['beacon', 'list', this.dealerId]);
+  }
 
   carManagement(){
     this.router.navigate(['car', 'list', this.dealerId]);
