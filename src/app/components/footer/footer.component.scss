@@ -11,7 +11,7 @@
   padding: 0;
   list-style: none;
   transform: translateZ(0);
--webkit-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 // .footer-img {
 // 	width:60px;   
@@ -58,17 +58,17 @@
   width: 30px !important;
   height: 22px !important;
 }
-.footer-padding{
-	width: 100%;
-  height:80px;
-   
+
+.footer-padding {
+  width: 100%;
+  height: 80px;
+
 }
- 
 @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
-  .footer-padding{
+  .footer-padding {
     width: 100%;
-    height:124px;
-     
+    height: 124px;
+
   }
   // .footer-bottom{
   //   height: 96px;
@@ -78,6 +78,5 @@
   //   height:204px;
   //   background-color: aqua;
   //   border: 1px solid blue;
-	// }
+  // }
 }
-
