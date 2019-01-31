@@ -1,9 +1,66 @@
 <!-- <app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
  -->
+<!-- 头部 -->
+<div
+  class="uk-container uk-padding-large uk-padding-remove-bottom uk-padding-remove-top user-list-top-style"
+>
+  <div uk-grid>
+    <div class="uk-width-1-2 uk-text-emphasis uk-text-bold">User List</div>
+    <div class="uk-width-1-2">
+      <button
+        class="uk-button uk-button-primary uk-padding-remove-left uk-padding-remove-right top-button-style"
+      >
+        Create
+      </button>
+    </div>
+  </div>
+</div>
+<!-- 列表 -->
+<div
+  class="uk-card uk-padding-small uk-margin-large uk-card-body uk-width-1-2@m"
+>
+<div class="table-wrap main-table-style">
+  <table
+    class="uk-table uk-margin-remove-top uk-margin-remove-bottom uk-table-middle "
+    style="background-color: #f5f5f5;"
+  >
+    <thead class="thead-style" style="background-color:#ffffff; ">
+      <tr>
+        <th class="uk-text-emphasis uk-text-bold" style="font-weight:bold">Username</th>
+        <th class="uk-text-emphasis uk-text-bold" style="font-weight:bold">Pvosition</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody style="background-color:#f5f5f5; ">
+      <tr class="uk-text-small uk-text-emphasis">
+        <td class="uk-text-small uk-text-emphasis">admin_yandebao</td>
+        <td class="uk-text-small uk-text-emphasis">admin</td>
+        <td class=" uk-padding-remove-right">
+          <button class="uk-button uk-button-default uk-text-bold uk-padding-remove-right uk-padding-remove-left edit-btn-style">Edit</button>
+        </td>
+      </tr>
+      <tr class="uk-text-small	uk-text-emphasis">
+        <td class="uk-text-small uk-text-emphasis">admin_yandebao</td>
+        <td class="uk-text-small uk-text-emphasis">admin</td>
+        <td class=" uk-padding-remove-right">
+          <button class="uk-button uk-button-default uk-text-bold uk-padding-remove-right uk-padding-remove-left edit-btn-style">Edit</button>
+        </td>
+      </tr>
+      <tr class="uk-text-small	uk-text-emphasis">
+        <td class="uk-text-small uk-text-emphasis">admin_yandebao</td>
+        <td class="uk-text-small uk-text-emphasis">admin</td>
+        <td class=" uk-padding-remove-right">
+          <button class="uk-button uk-button-default uk-text-bold uk-padding-remove-right uk-padding-remove-left edit-btn-style">Edit</button>
+        </td>
+      </tr>
+      <tr><td></td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<app-footer></app-footer>
 
- <app-footer></app-footer>
-
-<div class="uk-container">
+<!-- <div class="uk-container">
   <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
 
@@ -67,5 +124,7 @@
     </li>
   </ul>
 </div>
+</div> -->
+<div class="loading" *ngIf="loading">
+  <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
 </div>
-<div class="loading" *ngIf="loading"><span class="uk-margin-small-right" uk-spinner="ratio: 3"></span></div>
