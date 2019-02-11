@@ -1,0 +1,28 @@
+.create-container-style{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 1.5em !important;
+    display: flex;
+    flex-direction: column;
+    background: #f1f1f2 !important;
+}
+.save-btn {
+  width: 80%;
+  height: 100%;
+  background: rgba(64,90,178,1);
+  border-radius: 6px;
+}
+.cancel-style{
+    text-align: left !important;
+}
+.save-btn{
+    float: right;
+}
+.create-container-style .bottom{
+    flex:1;
+}
+.main-content{
+    width: 100%;
+    margin: 0 auto;
+}
