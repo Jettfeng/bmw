@@ -1,5 +1,81 @@
 <app-header [backPath]="true" (onClickButton)="onHeaderClick($event)"></app-header>
-<div class="uk-container">
+
+<!-- eidt----------------------------------start -->
+<div
+  class="uk-container create-wrap"
+  style="padding-top:1.5em !important;box-sizing: border-box;"
+>
+  <div
+    class="uk-padding-small uk-padding-remove-left uk-padding-remove-right"
+    uk-grid
+  >
+    <div class="uk-width-1-3 uk-text-left uk-text-emphasis">
+      cancel
+    </div>
+
+    <div class="uk-width-1-3"></div>
+    <div class="uk-width-1-3 uk-text-center">
+      <button class="uk-button-primary save-btn">
+        save
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="uk-width-1-1 register-padding uk-text-emphasis uk-margin-small-top"
+  >
+    User Edit
+  </div>
+  <div class="uk-margin-top"></div>
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m middleBg">
+    <div class="uk-margin-top">&nbsp;</div>
+    <div uk-grid>
+      <div class="uk-width-1-2 uk-text-emphasis left" for="username">
+        *Username
+      </div>
+      <div class="uk-width-1-2 uk-padding-remove">
+        <input
+          class="uk-search-input uk-text-emphasis pad4"
+          type="text"
+          value="admin_yandebao"
+        />
+      </div>
+    </div>
+    <div uk-grid class="uk-margin-large-bottom">
+      <div class="uk-width-1-2 uk-text-emphasis left" for="password">
+        *Position
+      </div>
+      <div class="uk-width-1-2 uk-padding-remove">
+        <input
+          class="uk-search-input uk-text-emphasis pad4"
+          type="text"
+          value="Admin"
+        />
+      </div>
+    </div>
+    <div uk-grid class="uk-margin-large-bottom">
+      <div class="uk-width-1-2 uk-text-emphasis left" for="password">
+        New Password
+      </div>
+      <div class="uk-width-1-2 uk-padding-remove">
+        <input class="uk-search-input uk-text-emphasis pad4" type="text" />
+      </div>
+    </div>
+    <div uk-grid class="uk-margin-large-bottom">
+      <div class="uk-width-1-2 uk-text-emphasis left" for="password">
+        Confirm
+      </div>
+      <div class="uk-width-1-2 uk-padding-remove">
+        <input class="uk-search-input uk-text-emphasis pad4" type="text" />
+      </div>
+    </div>
+    <div class="uk-margin-top">&nbsp;</div>
+  </div>
+</div>
+<!-- eidt----------------------------------end -->
+
+
+<!-- <div class="uk-container">
     <nav class="uk-navbar-container uk-margin" uk-navbar>
         <div class="uk-navbar-left">
             <a class="uk-navbar-item uk-logo">{{'user edit'|translate}}</a>
@@ -61,7 +137,7 @@
         <button class="uk-button uk-button-default uk-border-rounded" (click)="editUser()">{{'edit'|translate}}</button>
         <button class="uk-button uk-button-default uk-border-rounded uk-margin-small-left" (click)="cancelUser()">{{'cancel'|translate}}</button>
     </div>
-</div>
+</div> -->
 
 <app-confirm-modal [elementId]="confirmModal.elementId" [detail]="confirmModal.detail" (onClick)="onClickConfirmModal($event)"></app-confirm-modal>
 
