@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { BeaconEditComponent } from './beacon-edit.component';
+import { BeaconEditComponent } from "./beacon-edit.component";
 
-describe('BeaconEditComponent', () => {
+describe("BeaconEditComponent", () => {
   let component: BeaconEditComponent;
   let fixture: ComponentFixture<BeaconEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BeaconEditComponent ]
-    })
-    .compileComponents();
+      declarations: [BeaconEditComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('BeaconEditComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
