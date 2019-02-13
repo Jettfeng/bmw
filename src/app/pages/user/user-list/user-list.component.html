@@ -5,12 +5,12 @@
   class="uk-container uk-padding-large uk-padding-remove-bottom uk-padding-remove-top user-list-top-style"
 >
   <div uk-grid>
-    <div class="uk-width-1-2 uk-text-emphasis uk-text-bold">User List</div>
+    <div class="uk-width-1-2 uk-text-emphasis uk-text-bold">{{ "user" | translate }} {{ "list" | translate }}</div>
     <div class="uk-width-1-2">
       <button
         class="uk-button uk-button-primary uk-padding-remove-left uk-padding-remove-right top-button-style"
-      >
-        Create
+        (click)="createUser()" >
+        {{ "create" | translate }}
       </button>
     </div>
   </div>
@@ -27,66 +27,60 @@
       <thead class="thead-style" style="background-color:#ffffff; ">
         <tr>
           <th class="uk-text-emphasis uk-text-bold" style="font-weight:bold">
-            Username
+            {{ "username" | translate }}
           </th>
           <th class="uk-text-emphasis uk-text-bold" style="font-weight:bold"  (click)="createUser()">
-            Pvosition
+            {{ "position" | translate }}
           </th>
           <th></th>
         </tr>
       </thead>
       <tbody class="tbody-style">
-        <tr class="uk-text-small uk-text-emphasis">
-          <td class="uk-text-small uk-text-emphasis">admin_yandebao</td>
-          <td class="uk-text-small uk-text-emphasis">admin</td>
+        <tr class="uk-text-small uk-text-emphasis"   *ngFor="let user of users; let i = index" >
+          <td class="uk-text-small uk-text-emphasis">{{ user.username }}</td>
+          <td class="uk-text-small uk-text-emphasis">{{ user.user_role_id }}</td>
           <td class="uk-padding-remove-left">
             <button
-              (click)="createUser()"
+            (click)="editUser(user.id)"
               class="uk-button uk-button-default uk-text-bold uk-padding-remove-right uk-padding-remove-left edit-btn-style"
             >
-              Edit
+            {{ "edit" | translate }}
             </button>
           </td>
         </tr>
-        <tr class="uk-text-small	uk-text-emphasis">
-          <td class="uk-text-small uk-text-emphasis">admin_yandebao</td>
-          <td class="uk-text-small uk-text-emphasis">admin</td>
-          <td class="uk-padding-remove-left">
-            <button
-              (click)="createUser()"
-              class="uk-button uk-button-default uk-text-bold uk-padding-remove-right uk-padding-remove-left edit-btn-style"
-            >
-              Edit
-            </button>
-          </td>
-        </tr>
-        <tr class="uk-text-small	uk-text-emphasis">
-          <td class="uk-text-small uk-text-emphasis">admin_yandebao</td>
-          <td class="uk-text-small uk-text-emphasis">admin</td>
-          <td class="uk-padding-remove-left">
-            <button
-              class="uk-button uk-button-default uk-text-bold uk-padding-remove-right uk-padding-remove-left edit-btn-style"
-            >
-              Edit
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-        </tr>
+       
       </tbody>
     </table>
   </div>
 </div>
 <!-- 分页 -->
-<ul class="uk-pagination pagination-style" uk-margin>
-  <li>
-    <a href="#"><span uk-pagination-previous></span></a>
+ 
+<ul class="uk-pagination pagination-style" uk-margin> 
+  <li *ngIf="pageController.pageIndex != 1">
+    <a (click)="changePageonClick(false, -1)">
+      <span uk-pagination-previous></span>
+    </a>
   </li>
-  <li><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li>
-    <a href="#"><span uk-pagination-next></span></a>
+  <li *ngIf="pageController.pageIndex > 4" class="uk-disabled">
+    <span>...</span>
+  </li>
+  <li
+    *ngFor="let index of pageController.pageArray"
+    [class.uk-active]="index == pageController.pageIndex"
+  >
+    <a (click)="changePageonClick(true, index)">{{ index }}</a>
+  </li>
+
+  <li
+    *ngIf="pageController.pageNumber - pageController.pageIndex > 3"
+    class="uk-disabled"
+  >
+    <span>...</span>
+  </li>
+  <li *ngIf="pageController.pageIndex != pageController.pageNumber">
+    <a (click)="changePageonClick(false, 1)">
+      <span uk-pagination-next></span>
+    </a>
   </li>
 </ul>
 <app-footer></app-footer>

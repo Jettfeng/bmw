@@ -18,7 +18,7 @@ export class ProfilePwdComponent implements OnInit {
     detail:this.translate.instant("Do you confirm to update Profile?"),
     state:"",
   }
-
+  user_role_name=''
   user = {
     id: '',
     username: '',
@@ -43,6 +43,17 @@ export class ProfilePwdComponent implements OnInit {
   loadProfile(){
     this.profileService.get(this.userId).then((res:any)=>{
       this.user = res.data.user;
+      switch(this.user.user_role_id){
+        case 'admin':
+        this.user_role_name='Admin';
+        break;
+        case 'service_agent':
+        this.user_role_name='Service Agent';
+        break;
+        case 'analyst':
+        this.user_role_name='Analyst';
+        break;
+      }
     }).catch((err:any)=>{
       UIkit.notification({
         message: this.translate.instant('Cannot load Profile'),
