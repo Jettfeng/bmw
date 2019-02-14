@@ -86,30 +86,34 @@ deleteIndex=0;
     }
     this.loadBeacon();
   }
-
   registerBeacon(){
     let _elementId = "#"+this.confirmModal.elementId;
-    if(this.beacon.name !='' && this.beacon.uuid  !=''){
-      this.confirmModal.detail=this.translate.instant("Do you confirm to register")+" " + this.beacon.name + " "+this.translate.instant("beacon")+"?";
-      this.confirmModal.state="add";
-      UIkit.modal(_elementId).show();
-    } else {
-      if(this.beacon.name ==''){
-        UIkit.notification({
-          message: this.translate.instant('name')+" "+this.translate.instant('cannot emtry!!!'),
-          status: 'warning',
-          timeout: 1000
-        });
-      }
-      if(this.beacon.uuid ==''){
-        UIkit.notification({
-          message: this.translate.instant('uuid')+" "+this.translate.instant('cannot emtry!!!'),
-          status: 'warning',
-          timeout: 1000
-        });
-      }
-    }
+    UIkit.modal(_elementId).$destroy(true);
+    this.router.navigate(['beacon', 'register', this.dealerId]);
   }
+  // registerBeacon(){
+  //   let _elementId = "#"+this.confirmModal.elementId;
+  //   if(this.beacon.name !='' && this.beacon.uuid  !=''){
+  //     this.confirmModal.detail=this.translate.instant("Do you confirm to register")+" " + this.beacon.name + " "+this.translate.instant("beacon")+"?";
+  //     this.confirmModal.state="add";
+  //     UIkit.modal(_elementId).show();
+  //   } else {
+  //     if(this.beacon.name ==''){
+  //       UIkit.notification({
+  //         message: this.translate.instant('name')+" "+this.translate.instant('cannot emtry!!!'),
+  //         status: 'warning',
+  //         timeout: 1000
+  //       });
+  //     }
+  //     if(this.beacon.uuid ==''){
+  //       UIkit.notification({
+  //         message: this.translate.instant('uuid')+" "+this.translate.instant('cannot emtry!!!'),
+  //         status: 'warning',
+  //         timeout: 1000
+  //       });
+  //     }
+  //   }
+  // }
 
   editBeacon(beaconId){
     let _elementId = "#"+this.confirmModal.elementId;
