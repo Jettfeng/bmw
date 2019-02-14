@@ -1,0 +1,45 @@
+.create-wrap {
+    min-height: 100%;
+    background: #f2f2f3;
+    padding-top: 0 !important;
+  }
+  
+  .save-btn {
+    width: 80%;
+    height: 100%;
+    background: rgba(64,90,178,1);
+    border-radius: 6px;
+  }
+  
+  .main-table-style {
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .edit-btn-style {
+    width: 60px;
+    height: 24px;
+    background: #f7f7f7;
+    box-shadow: 0 13px 77px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    border: none;
+    line-height: 20px;
+  }
+  
+  .tbody-style {
+    background-color: #f5f5f5;
+  }
+  
+  .break-word-style {
+    word-wrap: break-all !important;
+  }
+  
+  .tbody-style tr td:last-child button {
+    float: right;
+  }
+  
+  .tbody-style tr:not(:last-child) {
+    border-top: 1px solid #fff !important;
+  }
+  
