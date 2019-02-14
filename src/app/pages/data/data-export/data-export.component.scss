@@ -1,12 +1,68 @@
-th, td{
-	border: 1px solid;
+.container-style {
+  padding-top: 1.5em;
 }
 
-.uk-table th{
-	text-align: center;
-	vertical-align: middle;
+.grid-container-style {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
-.uk-table td{
-	vertical-align: middle;
+.grid-style {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.grid-style div {
+  text-align: center;
+}
+
+.grid-style div input {
+  width: 100%;
+  border: none;
+  background: #dcdcdc;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+}
+
+.btn-style {
+  width: 68px;
+  height: 24px;
+  line-height: 24px;
+  background: rgba(64,90,178,1);
+  opacity: .9;
+  border-radius: 6px;
+  color: rgba(255,255,255,1);
+  //   vertical-align: top;
+}
+
+.data-style {
+  width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+.bottom-main-style {
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.table-style thead tr:first-child th:first-child {
+  background: #ebebec;
+}
+
+.table-style thead tr:first-child th:not(:first-child) {
+  border-bottom: 1px solid #ffffff;
+}
+// ------------------------------------------------
+
+.uk-table th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.uk-table td {
+  vertical-align: middle;
 }
