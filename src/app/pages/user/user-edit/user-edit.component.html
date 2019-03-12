@@ -10,7 +10,7 @@
     uk-grid
   >
     <div class="uk-width-1-3 uk-text-left uk-text-emphasis" (click)="cancelUser()">
-      {{'cancel'|translate}
+      {{'cancel'|translate}}
     </div>
 
     <div class="uk-width-1-3"></div>
@@ -36,7 +36,7 @@
         <input
           class="uk-search-input uk-text-emphasis pad4"
           type="text"
-          value="admin_yandebao"
+          [(ngModel)]="user.username"   
         />
       </div>
     </div>
@@ -48,7 +48,7 @@
         <input
           class="uk-search-input uk-text-emphasis pad4"
           type="text"
-          [(ngModel)]="user_role_name" disabled
+          [(ngModel)]="user.user_role_id" disabled
         />
       </div>
     </div>

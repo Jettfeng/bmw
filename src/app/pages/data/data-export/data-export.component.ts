@@ -80,20 +80,20 @@ export class DataExportComponent implements OnInit {
         rowheader.push(carElement.color);
         let stationIndex = 0;
         let count = 0;
-        while(count <  carElement.timeline.length || stationIndex < this.stations.length){
-          if(count == carElement.timeline.length){
+        while(count <  carElement.dashboard.length || stationIndex < this.stations.length){
+          if(count == carElement.dashboard.length){
             count--;
           }
           if(stationIndex == this.stations.length){
             stationIndex--;
           }
-          if(carElement.timeline[count].station_id != 0){
-            if(carElement.timeline[count].station_id == this.stations[stationIndex].id){
-              rowheader.push(carElement.timeline[count].min_time);
-              rowheader.push(carElement.timeline[count].max_time);
-              rowheader.push(carElement.timeline[count].def_time);
-              if(carElement.timeline[count].station_noti_name){
-                rowheader.push(carElement.timeline[count].station_noti_name);
+          if(carElement.dashboard[count].station_id != 0){
+            if(carElement.dashboard[count].station_id == this.stations[stationIndex].id){
+              rowheader.push(carElement.dashboard[count].min_time);
+              rowheader.push(carElement.dashboard[count].max_time);
+              rowheader.push(carElement.dashboard[count].def_time);
+              if(carElement.dashboard[count].station_noti_name){
+                rowheader.push(carElement.dashboard[count].station_noti_name);
               }else{
                 rowheader.push("OK");
               }
@@ -110,13 +110,13 @@ export class DataExportComponent implements OnInit {
           }else{
             ///check if these is 2 zero station id
             if(rowheader.length > 8){
-              rowheader[8] = rowheader[8]+", "+carElement.timeline[count].dealer_noti_name;
+              rowheader[8] = rowheader[8]+", "+carElement.dashboard[count].dealer_noti_name;
             }else{
-              rowheader.push(carElement.timeline[count].min_time);
-              rowheader.push(carElement.timeline[count].max_time);
-              rowheader.push(carElement.timeline[count].def_time);
-              if(carElement.timeline[count].dealer_noti_name != null){
-                rowheader.push(carElement.timeline[count].dealer_noti_name);
+              rowheader.push(carElement.dashboard[count].min_time);
+              rowheader.push(carElement.dashboard[count].max_time);
+              rowheader.push(carElement.dashboard[count].def_time);
+              if(carElement.dashboard[count].dealer_noti_name != null){
+                rowheader.push(carElement.dashboard[count].dealer_noti_name);
               }else{
                 rowheader.push("OK");
               }
@@ -163,23 +163,23 @@ export class DataExportComponent implements OnInit {
       }
       let tmpCar = res.data.car;
       tmpCar.forEach(carElement => {
-        let tmpTimeline = [];
+        let tmpdashboard = [];
         let stationIndex = 0;
         let count = 0;
-        while(count <  carElement.timeline.length || stationIndex < this.stations.length){
-          if(count == carElement.timeline.length){
+        while(count <  carElement.dashboard.length || stationIndex < this.stations.length){
+          if(count == carElement.dashboard.length){
             count--;
           }
           if(stationIndex == this.stations.length){
             stationIndex--;
           }
-          if(carElement.timeline[count].station_id != 0){
-            if(carElement.timeline[count].station_id == this.stations[stationIndex].id){
-              tmpTimeline.push(carElement.timeline[count]);
+          if(carElement.dashboard[count].station_id != 0){
+            if(carElement.dashboard[count].station_id == this.stations[stationIndex].id){
+              tmpdashboard.push(carElement.dashboard[count]);
               stationIndex++;
               count++;
             } else {
-              tmpTimeline.push({
+              tmpdashboard.push({
                 station_noti_name: " ",
                 def_time: "",
                 max_time: "",
@@ -190,15 +190,15 @@ export class DataExportComponent implements OnInit {
             }
           }else{
             ///check if these is 2 zero station id
-            if(tmpTimeline.length > 0){
-              tmpTimeline[0].dealer_noti_name = tmpTimeline[0].dealer_noti_name +", "+carElement.timeline[count].dealer_noti_name;
+            if(tmpdashboard.length > 0){
+              tmpdashboard[0].dealer_noti_name = tmpdashboard[0].dealer_noti_name +", "+carElement.dashboard[count].dealer_noti_name;
             }else{
-              tmpTimeline.push(carElement.timeline[count]);
+              tmpdashboard.push(carElement.dashboard[count]);
             }
             count++;
           }
         };
-        carElement.timeline = tmpTimeline;
+        carElement.dashboard = tmpdashboard;
       });
       this.datas = tmpCar;
       this.loading = false;
