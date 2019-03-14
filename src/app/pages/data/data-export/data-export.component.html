@@ -22,7 +22,7 @@
         [(ngModel)]="filter.end_date"  />
       </div>
       <div class="uk-width-1-3 uk-padding-remove">
-        <button class="uk-button uk-button-small btn-style"   (click)="onClickFilter()"
+        <button class="uk-button uk-button-small btn-style-data"   (click)="onClickFilter()"
         >
           {{ "apply" | translate }}</button>
       </div>
@@ -36,56 +36,56 @@
           <table class="uk-table uk-table-striped uk-table-small">
             <thead>
               <tr>
-                <th rowspan="2">{{ "date" | translate }}</th>
-                <th colspan="4">
+                <th rowspan="2" class="date-style uk-text-emphasis">{{ "date" | translate }}</th>
+                <th colspan="4" class="uk-text-emphasis white-bg">
                   {{ "car" | translate }} {{ "detail" | translate }}
                 </th>
-                <th colspan="4">{{ "summary" | translate }}</th>
-                <th colspan="4" *ngFor="let station of stations">
+                <th colspan="4" class="uk-text-emphasis white-bg uk-text-bold">{{ "summary" | translate }}</th>
+                <th colspan="4" class="uk-text-emphasis white-bg uk-text-bold" *ngFor="let station of stations">
                   {{ station.name }}
                 </th>
               </tr>
-              <tr>
-                <th class="uk-text-nowrap">{{ "license plate" | translate }}</th>
-                <th class="uk-text-nowrap">{{ "brand" | translate }}</th>
-                <th class="uk-text-nowrap">{{ "model" | translate }}</th>
-                <th class="uk-text-nowrap">{{ "color" | translate }}</th>
-                <th class="uk-text-nowrap">
+              <tr class="grident">
+                <th class="uk-text-nowrap uk-text-emphasis">{{ "license plate" | translate }}</th>
+                <th class="uk-text-nowrap uk-text-emphasis">{{ "brand" | translate }}</th>
+                <th class="uk-text-nowrap uk-text-emphasis">{{ "model" | translate }}</th>
+                <th class="uk-text-nowrap uk-text-emphasis">{{ "color" | translate }}</th>
+                <th class="uk-text-nowrap uk-text-emphasis">
                   {{ "arrival" | translate }} {{ "time" | translate }}
                 </th>
-                <th class="uk-text-nowrap">
+                <th class="uk-text-nowrap uk-text-emphasis">
                   {{ "departure" | translate }} {{ "time" | translate }}
                 </th>
-                <th class="uk-text-nowrap">
+                <th class="uk-text-nowrap uk-text-emphasis">
                   {{ "total" | translate }} {{ "time" | translate }}
                 </th>
-                <th class="uk-text-nowrap">{{ "status" | translate }}</th>
+                <th class="uk-text-nowrap uk-text-emphasis">{{ "status" | translate }}</th>
                 <ng-container *ngFor="let station of stations">
-                  <th class="uk-text-nowrap">
+                  <th class="uk-text-nowrap uk-text-emphasis">
                     {{ "arrival" | translate }} {{ "time" | translate }}
                   </th>
-                  <th class="uk-text-nowrap">
+                  <th class="uk-text-nowrap uk-text-emphasis">
                     {{ "departure" | translate }} {{ "time" | translate }}
                   </th>
-                  <th class="uk-text-nowrap">
+                  <th class="uk-text-nowrap uk-text-emphasis">
                     {{ "total" | translate }} {{ "time" | translate }}
                   </th>
-                  <th class="uk-text-nowrap">{{ "status" | translate }}</th>
+                  <th class="uk-text-nowrap uk-text-emphasis">{{ "status" | translate }}</th>
                 </ng-container>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of datas">
-                <td class="uk-text-nowrap">{{ data.created_at }}</td>
-                <td class="uk-text-nowrap">{{ data.license_plate }}</td>
-                <td class="uk-text-nowrap">{{ data.brand }}</td>
-                <td class="uk-text-nowrap">{{ data.model }}</td>
-                <td class="uk-text-nowrap">{{ data.color }}</td>
+              <tr *ngFor="let data of datas" class="white-border-top">
+                <td class="uk-text-nowrap uk-text-emphasis">{{ data.created_at }}</td>
+                <td class="uk-text-nowrap uk-text-emphasis">{{ data.license_plate }}</td>
+                <td class="uk-text-nowrap uk-text-emphasis">{{ data.brand }}</td>
+                <td class="uk-text-nowrap uk-text-emphasis">{{ data.model }}</td>
+                <td class="uk-text-nowrap uk-text-emphasis">{{ data.color }}</td>
                 <ng-container>
-                  <td class="uk-text-nowrap">{{ data.dashboard[0].min_time }}</td>
-                  <td class="uk-text-nowrap">{{ data.dashboard[0].max_time }}</td>
-                  <td class="uk-text-nowrap">{{ data.dashboard[0].def_time }}</td>
-                  <td class="uk-text-nowrap">
+                  <td class="uk-text-nowrap uk-text-emphasis">{{ data.dashboard[0].min_time }}</td>
+                  <td class="uk-text-nowrap uk-text-emphasis">{{ data.dashboard[0].max_time }}</td>
+                  <td class="uk-text-nowrap uk-text-emphasis">{{ data.dashboard[0].def_time }}</td>
+                  <td class="uk-text-nowrap uk-text-emphasis">
                     <ng-container *ngFor="let dashboard of data.dashboard">
                       <ng-container *ngIf="dashboard.station_id == 0">
                         {{ dashboard.dealer_noti_name }},
@@ -98,10 +98,10 @@
                 </ng-container>
                 <ng-container *ngFor="let dashboard of data.dashboard">
                   <ng-container *ngIf="dashboard.station_id != 0">
-                    <td class="uk-text-nowrap">{{ dashboard.min_time }}</td>
-                    <td class="uk-text-nowrap">{{ dashboard.max_time }}</td>
-                    <td class="uk-text-nowrap">{{ dashboard.def_time }}</td>
-                    <td class="uk-text-nowrap">
+                    <td class="uk-text-nowrap uk-text-emphasis">{{ dashboard.min_time }}</td>
+                    <td class="uk-text-nowrap uk-text-emphasis">{{ dashboard.max_time }}</td>
+                    <td class="uk-text-nowrap uk-text-emphasis">{{ dashboard.def_time }}</td>
+                    <td class="uk-text-nowrap uk-text-emphasis">
                       <ng-container *ngIf="dashboard.station_noti_name">
                         {{ dashboard.station_noti_name }}
                       </ng-container>
