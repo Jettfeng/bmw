@@ -5,148 +5,197 @@
   <div class="uk-container uk-padding grid-container-style">
     <div uk-grid class="grid-style">
       <div class="uk-width-1-3 uk-padding-remove uk-text-emphasis">
-          {{ "start date" | translate }}
+        {{ "start date" | translate }}
       </div>
       <div class="uk-width-1-3 uk-padding-remove">
-        <input type="date" value="2019-01-01" name="start_date" id="start_date"  
-        [(ngModel)]="filter.start_date"  />
+        <input
+          type="date"
+          value="2019-01-01"
+          name="start_date"
+          id="start_date"
+          [(ngModel)]="filter.start_date"
+        />
       </div>
       <div class="uk-width-1-3 uk-padding-remove"></div>
     </div>
     <div uk-grid class="grid-style uk-margin-top">
       <div class="uk-width-1-3 uk-padding-remove uk-text-emphasis">
-          {{ "end date" | translate }}
+        {{ "end date" | translate }}
       </div>
       <div class="uk-width-1-3 uk-padding-remove">
-        <input type="date" name="end_date" id="end_date"  
-        [(ngModel)]="filter.end_date"  />
+        <input
+          type="date"
+          name="end_date"
+          id="end_date"
+          [(ngModel)]="filter.end_date"
+        />
       </div>
       <div class="uk-width-1-3 uk-padding-remove">
-        <button class="uk-button uk-button-small btn-style-data"   (click)="onClickFilter()"
+        <button
+          class="uk-button uk-button-small btn-style-data"
+          (click)="onClickFilter()"
         >
-          {{ "apply" | translate }}</button>
+          {{ "apply" | translate }}
+        </button>
       </div>
     </div>
   </div>
-  
-  
+
   <!-- 上面的表格 ----end-->
-  <div class="bottom-main-style uk-margin-large-top uk-padding-small uk-padding-remove-top uk-padding-remove-left uk-padding-remove-right">
-      <div class="uk-overflow-auto">
-          <table class="uk-table uk-table-striped uk-table-small">
-            <thead>
-              <tr>
-                <th rowspan="2" class="date-style uk-text-emphasis">{{ "date" | translate }}</th>
-                <th colspan="4" class="uk-text-emphasis white-bg">
-                  {{ "car" | translate }} {{ "detail" | translate }}
-                </th>
-                <th colspan="4" class="uk-text-emphasis white-bg uk-text-bold">{{ "summary" | translate }}</th>
-                <th colspan="4" class="uk-text-emphasis white-bg uk-text-bold" *ngFor="let station of stations">
-                  {{ station.name }}
-                </th>
-              </tr>
-              <tr class="grident">
-                <th class="uk-text-nowrap uk-text-emphasis">{{ "license plate" | translate }}</th>
-                <th class="uk-text-nowrap uk-text-emphasis">{{ "brand" | translate }}</th>
-                <th class="uk-text-nowrap uk-text-emphasis">{{ "model" | translate }}</th>
-                <th class="uk-text-nowrap uk-text-emphasis">{{ "color" | translate }}</th>
-                <th class="uk-text-nowrap uk-text-emphasis">
-                  {{ "arrival" | translate }} {{ "time" | translate }}
-                </th>
-                <th class="uk-text-nowrap uk-text-emphasis">
-                  {{ "departure" | translate }} {{ "time" | translate }}
-                </th>
-                <th class="uk-text-nowrap uk-text-emphasis">
-                  {{ "total" | translate }} {{ "time" | translate }}
-                </th>
-                <th class="uk-text-nowrap uk-text-emphasis">{{ "status" | translate }}</th>
-                <ng-container *ngFor="let station of stations">
-                  <th class="uk-text-nowrap uk-text-emphasis">
-                    {{ "arrival" | translate }} {{ "time" | translate }}
-                  </th>
-                  <th class="uk-text-nowrap uk-text-emphasis">
-                    {{ "departure" | translate }} {{ "time" | translate }}
-                  </th>
-                  <th class="uk-text-nowrap uk-text-emphasis">
-                    {{ "total" | translate }} {{ "time" | translate }}
-                  </th>
-                  <th class="uk-text-nowrap uk-text-emphasis">{{ "status" | translate }}</th>
-                </ng-container>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let data of datas" class="white-border-top">
-                <td class="uk-text-nowrap uk-text-emphasis">{{ data.created_at }}</td>
-                <td class="uk-text-nowrap uk-text-emphasis">{{ data.license_plate }}</td>
-                <td class="uk-text-nowrap uk-text-emphasis">{{ data.brand }}</td>
-                <td class="uk-text-nowrap uk-text-emphasis">{{ data.model }}</td>
-                <td class="uk-text-nowrap uk-text-emphasis">{{ data.color }}</td>
-                <ng-container>
-                  <td class="uk-text-nowrap uk-text-emphasis">{{ data.dashboard[0].min_time }}</td>
-                  <td class="uk-text-nowrap uk-text-emphasis">{{ data.dashboard[0].max_time }}</td>
-                  <td class="uk-text-nowrap uk-text-emphasis">{{ data.dashboard[0].def_time }}</td>
-                  <td class="uk-text-nowrap uk-text-emphasis">
-                    <ng-container *ngFor="let dashboard of data.dashboard">
-                      <ng-container *ngIf="dashboard.station_id == 0">
-                        {{ dashboard.dealer_noti_name }},
-                      </ng-container>
-                    </ng-container>
-                    <ng-container *ngIf="!data.dashboard[0].dealer_noti_name">
-                      OK
-                    </ng-container>
-                  </td>
-                </ng-container>
+  <div
+    class="bottom-main-style uk-margin-large-top uk-padding-small uk-padding-remove-top uk-padding-remove-left uk-padding-remove-right"
+  >
+    <div class="uk-overflow-auto">
+      <table class="uk-table uk-table-striped uk-table-small">
+        <thead>
+          <tr>
+            <th rowspan="2" class="date-style uk-text-emphasis">
+              {{ "date" | translate }}
+            </th>
+            <th colspan="4" class="uk-text-emphasis white-bg">
+              {{ "car" | translate }} {{ "detail" | translate }}
+            </th>
+            <th colspan="4" class="uk-text-emphasis white-bg uk-text-bold">
+              {{ "summary" | translate }}
+            </th>
+            <th
+              colspan="4"
+              class="uk-text-emphasis white-bg uk-text-bold"
+              *ngFor="let station of stations"
+            >
+              {{ station.name }}
+            </th>
+          </tr>
+          <tr class="grident">
+            <th class="uk-text-nowrap uk-text-emphasis">
+              {{ "license plate" | translate }}
+            </th>
+            <th class="uk-text-nowrap uk-text-emphasis">
+              {{ "brand" | translate }}
+            </th>
+            <th class="uk-text-nowrap uk-text-emphasis">
+              {{ "model" | translate }}
+            </th>
+            <th class="uk-text-nowrap uk-text-emphasis">
+              {{ "color" | translate }}
+            </th>
+            <th class="uk-text-nowrap uk-text-emphasis">
+              {{ "arrival" | translate }} {{ "time" | translate }}
+            </th>
+            <th class="uk-text-nowrap uk-text-emphasis">
+              {{ "departure" | translate }} {{ "time" | translate }}
+            </th>
+            <th class="uk-text-nowrap uk-text-emphasis">
+              {{ "total" | translate }} {{ "time" | translate }}
+            </th>
+            <th class="uk-text-nowrap uk-text-emphasis">
+              {{ "status" | translate }}
+            </th>
+            <ng-container *ngFor="let station of stations">
+              <th class="uk-text-nowrap uk-text-emphasis">
+                {{ "arrival" | translate }} {{ "time" | translate }}
+              </th>
+              <th class="uk-text-nowrap uk-text-emphasis">
+                {{ "departure" | translate }} {{ "time" | translate }}
+              </th>
+              <th class="uk-text-nowrap uk-text-emphasis">
+                {{ "total" | translate }} {{ "time" | translate }}
+              </th>
+              <th class="uk-text-nowrap uk-text-emphasis">
+                {{ "status" | translate }}
+              </th>
+            </ng-container>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of datas" class="white-border-top">
+            <td class="uk-text-nowrap uk-text-emphasis">
+              {{ data.created_at }}
+            </td>
+            <td class="uk-text-nowrap uk-text-emphasis">
+              {{ data.license_plate }}
+            </td>
+            <td class="uk-text-nowrap uk-text-emphasis">{{ data.brand }}</td>
+            <td class="uk-text-nowrap uk-text-emphasis">{{ data.model }}</td>
+            <td class="uk-text-nowrap uk-text-emphasis">{{ data.color }}</td>
+            <ng-container>
+              <td class="uk-text-nowrap uk-text-emphasis">
+                {{ data.dashboard[0].min_time }}
+              </td>
+              <td class="uk-text-nowrap uk-text-emphasis">
+                {{ data.dashboard[0].max_time }}
+              </td>
+              <td class="uk-text-nowrap uk-text-emphasis">
+                {{ data.dashboard[0].def_time }}
+              </td>
+              <td class="uk-text-nowrap uk-text-emphasis">
                 <ng-container *ngFor="let dashboard of data.dashboard">
-                  <ng-container *ngIf="dashboard.station_id != 0">
-                    <td class="uk-text-nowrap uk-text-emphasis">{{ dashboard.min_time }}</td>
-                    <td class="uk-text-nowrap uk-text-emphasis">{{ dashboard.max_time }}</td>
-                    <td class="uk-text-nowrap uk-text-emphasis">{{ dashboard.def_time }}</td>
-                    <td class="uk-text-nowrap uk-text-emphasis">
-                      <ng-container *ngIf="dashboard.station_noti_name">
-                        {{ dashboard.station_noti_name }}
-                      </ng-container>
-                      <ng-container *ngIf="!dashboard.station_noti_name">
-                        OK
-                      </ng-container>
-                    </td>
+                  <ng-container *ngIf="dashboard.station_id == 0">
+                    {{ dashboard.dealer_noti_name }},
                   </ng-container>
                 </ng-container>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="uk-margin">
-            <ul class="uk-pagination uk-flex-center" uk-margin>
-              <li *ngIf="pageController.pageIndex != 1">
-                <a (click)="changePageonClick(false, -1)">
-                  <span uk-pagination-previous></span>
-                </a>
-              </li>
-              <li *ngIf="pageController.pageIndex > 4" class="uk-disabled">
-                <span>...</span>
-              </li>
-              <li
-                *ngFor="let index of pageController.pageArray"
-                [class.uk-active]="index == pageController.pageIndex"
-              >
-                <a (click)="changePageonClick(true, index)">{{ index }}</a>
-              </li>
-              <li
-                *ngIf="pageController.pageNumber - pageController.pageIndex > 3"
-                class="uk-disabled"
-              >
-                <span>...</span>
-              </li>
-              <li *ngIf="pageController.pageIndex != pageController.pageNumber">
-                <a (click)="changePageonClick(false, 1)">
-                  <span uk-pagination-next></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-    
+                <ng-container *ngIf="!data.dashboard[0].dealer_noti_name">
+                  OK
+                </ng-container>
+              </td>
+            </ng-container>
+            <ng-container *ngFor="let dashboard of data.dashboard">
+              <ng-container *ngIf="dashboard.station_id != 0">
+                <td class="uk-text-nowrap uk-text-emphasis">
+                  {{ dashboard.min_time }}
+                </td>
+                <td class="uk-text-nowrap uk-text-emphasis">
+                  {{ dashboard.max_time }}
+                </td>
+                <td class="uk-text-nowrap uk-text-emphasis">
+                  {{ dashboard.def_time }}
+                </td>
+                <td class="uk-text-nowrap uk-text-emphasis">
+                  <ng-container *ngIf="dashboard.station_noti_name">
+                    {{ dashboard.station_noti_name }}
+                  </ng-container>
+                  <ng-container *ngIf="!dashboard.station_noti_name">
+                    OK
+                  </ng-container>
+                </td>
+              </ng-container>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="uk-margin">
+      <ul class="uk-pagination uk-flex-center" uk-margin>
+        <li *ngIf="pageController.pageIndex != 1">
+          <a (click)="changePageonClick(false, -1)">
+            <span uk-pagination-previous></span>
+          </a>
+        </li>
+        <li *ngIf="pageController.pageIndex > 4" class="uk-disabled">
+          <span>...</span>
+        </li>
+        <li
+          *ngFor="let index of pageController.pageArray"
+          [class.uk-active]="index == pageController.pageIndex"
+        >
+          <a (click)="changePageonClick(true, index)">{{ index }}</a>
+        </li>
+        <li
+          *ngIf="pageController.pageNumber - pageController.pageIndex > 3"
+          class="uk-disabled"
+        >
+          <span>...</span>
+        </li>
+        <li *ngIf="pageController.pageIndex != pageController.pageNumber">
+          <a (click)="changePageonClick(false, 1)">
+            <span uk-pagination-next></span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
+
 <app-footer></app-footer>
 
 <!-- ------------------------------------------------------------------------------------------------- -->
