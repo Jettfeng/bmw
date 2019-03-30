@@ -20,11 +20,23 @@
           
           <div class="uk-form-controls uk-width-1-2">
             
-            <select  class="uk-select uk-form-small grayBg uk-text-emphasis" id="beacon" name="beacon"  [(ngModel)]="car.beacon_name"  >
-                <option class="uk-form-small grayBg uk-text-emphasis" *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
-            </select>
+              <input class="uk-search-input grayBg input-padding-left uk-text-emphasis" type="text" name="brand" id="brand" type="text" [(ngModel)]="car.brand" placeholder="*{{'Please enter the brand'|translate}}" />
+         
           </div>
+          <div class="uk-width-1-2 uk-padding-right">
+              <input class="uk-search-input grayBg input-padding-left uk-text-emphasis" type="text" name="model" id="model" type="text" [(ngModel)]="car.model" placeholder="*{{'Please enter the model'|translate}}" />
+            </div>
+            
+            <div class="uk-form-controls uk-width-1-2">
+                <input class="uk-search-input grayBg input-padding-left uk-text-emphasis" type="text" name="color" id="color" type="text" [(ngModel)]="car.color" placeholder="*{{'Please enter the color'|translate}}" />
            
+              
+            </div>
+            <div class="uk-width-1-2 uk-padding-right">
+                <select  class="uk-select uk-form-small grayBg uk-text-emphasis" id="beacon" name="beacon"  [(ngModel)]="car.beacon_name"  >
+                    <option class="uk-form-small grayBg uk-text-emphasis" *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
+                </select>
+            </div>
         </div>
        
       </div>

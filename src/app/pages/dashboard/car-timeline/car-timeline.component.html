@@ -14,16 +14,12 @@
     <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-padding-small topcontainer">
       <button class="uk-button uk-button-default uk-button-small btn-style uk-margin-small-bottom">Information</button>
       <dl class="uk-description-list uk-margin-remove-top dl-style">
-        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'status'|translate}}</dt>
-        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngFor="let status of car.status"  > {{status}}</dd>
-        <dd class="uk-text-emphasis uk-margin-small-bottom">{{'license plate'|translate}}</dd>
-        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.license_plate" >{{car.license_plate}}</dd>
-        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'brand'|translate}}</dt>
-        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.brand" >{{car.brand}}</dd>
-        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'model'|translate}}</dt>
-        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.model" >{{car.model}}</dd>
-        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'color'|translate}}</dt>
-        <dd class="uk-text-emphasis  "   *ngIf="car.color">{{car.color}}</dd>
+        <!-- <ng -->
+        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'status'|translate}}：<span *ngIf="car.status">{{car.status}}</span> </dt>
+        <dd class="uk-text-emphasis uk-margin-small-bottom">{{'license plate'|translate}}：<span *ngIf="car.license_plate">{{car.license_plate}}</span></dd>
+        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'brand'|translate}}：<span *ngIf="car.brand">{{car.brand}}</span></dt>
+        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'model'|translate}}：<span *ngIf="car.model">{{car.model}}</span></dt>
+        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'color'|translate}}：<span *ngIf="car.color">{{car.color}}</span></dt>
       </dl>
     </div>
   </div>

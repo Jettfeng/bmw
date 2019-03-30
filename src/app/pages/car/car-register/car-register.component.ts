@@ -26,7 +26,8 @@ export class CarRegisterComponent implements OnInit {
     model:'',
     color:'',
     beacon_name:('*'+this.translate.instant("Select Beacon")),
-    dealer_id: ','
+    dealer_id: ',',
+    username:''
   };
 
   constructor(private router : Router, private activeRoute : ActivatedRoute, private carService: CarService, private translate: TranslateService) { 
@@ -49,6 +50,7 @@ export class CarRegisterComponent implements OnInit {
         
         this.beacons = res.data.beacon;
         this.beacons.unshift(de_car);
+        this.car.username=localStorage.getItem('userName');
      //   new Object(){name:this.translate.instant("Select Beacon")
       //  this.beacons.shift(},0)//serviceagent1
         this.loading = false;

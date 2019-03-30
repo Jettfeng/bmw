@@ -33,7 +33,7 @@ export class CarDashboardComponent implements OnInit, OnDestroy {
   // secondsCounter = interval(5000);
 
   interval = setInterval(() => {
-    this.refreshCar()
+   // this.refreshCar()
   }, 5000);
   
   constructor(private router : Router, private activeRoute : ActivatedRoute, private dashboardService: DashboardService, private translate: TranslateService) { 

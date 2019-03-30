@@ -44,7 +44,6 @@ export class CarListComponent implements OnInit {
     id:'',
     title:'',
     beaconName: '',
-  
     form:{
       beaconId:'',
     }
@@ -92,6 +91,7 @@ export class CarListComponent implements OnInit {
           }
         }
         this.cars = res.data.car;
+     
         this.loading = false;
 
       }).catch((err:any)=>{
@@ -148,12 +148,13 @@ export class CarListComponent implements OnInit {
   }
 
   deregister(){
-    if(this.modalDeregister.form.beaconId ==  this.modalDeregister.beaconName){
+    if(this.modalDeregister.id!='' ){
       this.loading = true;
       this.carService.deregister(this.modalDeregister.id).then((res:any)=>{
         UIkit.modal('#modal-deregister').hide();
         this.loading = false;
         this.loadCar();
+        this.modalDeregister.id='';
       }).catch((err:any)=>{
         UIkit.modal('#modal-deregister').hide();
         this.loading = false;

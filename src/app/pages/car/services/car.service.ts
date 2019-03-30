@@ -151,6 +151,7 @@ export class CarService {
       };
       let params  = {
         id: car_id,
+        username:localStorage.getItem('userName')
       };
       this.http.post(apiURL,params,httpOptions)
         .toPromise()

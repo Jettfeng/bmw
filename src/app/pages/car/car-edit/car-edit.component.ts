@@ -30,6 +30,7 @@ export class CarEditComponent implements OnInit {
     dealer_id:'',
     beacon: [],
     timeline: [],
+    username:''
   }
   beacons = [];
   role = {
@@ -59,7 +60,7 @@ export class CarEditComponent implements OnInit {
         };
       
       this.beacons = res.data.beacon;
-      this.beacons.unshift(de_car);
+     // this.beacons.unshift(de_car);
       console.log('aaa');
         console.log(this.beacons);
     })
@@ -76,6 +77,7 @@ export class CarEditComponent implements OnInit {
       this.car.beacon = [];
       this.car.timeline = [];
       this.loading=false;
+      this.car.username=localStorage.getItem('userName');
     }).catch((err:any)=>{
       this.loading=false;
       UIkit.notification({

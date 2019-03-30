@@ -190,6 +190,8 @@
     "New Password":"新密码",
     "Enter New Password":"输入新密码",
     "Reply Password":"重复密码",
-    
+    "Please enter the brand":"输入品牌",
+    "Please enter the model":"输入型号",
+    "Please enter the color":"输入颜色",
     "Select Beacon":"选择 Beacon"
 }

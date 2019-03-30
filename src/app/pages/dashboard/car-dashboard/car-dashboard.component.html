@@ -35,7 +35,7 @@
     >
       <tr style="border-top: none;border-bottom: 1px solid #ffffff;">
         <td>{{ car.license_plate }}</td>
-        <td>{{ "current" | translate }} {{ "station" | translate }}</td>
+        <td>{{ car.currentStation }}</td>
         <td>{{ car.stationTime }} {{ "minutes" | translate }}</td>
         <td>{{ car.totalTime }} {{ "minutes" | translate }}</td>
       </tr>
@@ -49,7 +49,7 @@
             {{ "view" | translate }} {{ "timeline" | translate }}
           </button>
         </td>
-        <td colspan="2" style="text-align:right">
+        <!-- <td colspan="2" style="text-align:right">
           <button
             style="border:none;background:rgba(64, 90, 178, 1);color:#fff;border-radius:4px;"
             class="uk-button uk-button-default"
@@ -58,7 +58,7 @@
           >
            刷新
           </button>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

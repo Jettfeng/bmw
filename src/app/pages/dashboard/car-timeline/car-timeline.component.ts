@@ -19,7 +19,7 @@ export class CarTimelineComponent implements OnInit {
     brand: '',
     model:'',
     color: '',
-    status:[],
+    status:'',
     timeline:[],
   };
   role = {
@@ -70,7 +70,7 @@ export class CarTimelineComponent implements OnInit {
           tmpStatus.push(noti.dealer_notification.name);
         }
       });
-      this.car.status = tmpStatus;
+      this.car.status =res.data.car[0].status;//tmpStatus;
       this.loading = false;
     }).catch((err:any)=>{
       UIkit.notification({
