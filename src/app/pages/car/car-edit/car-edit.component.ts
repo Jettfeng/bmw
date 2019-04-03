@@ -30,8 +30,10 @@ export class CarEditComponent implements OnInit {
     dealer_id:'',
     beacon: [],
     timeline: [],
+    username:''
   }
   beacons = [];
+  cars = [];
   role = {
     admin: false,
     supervisor: false,
@@ -59,9 +61,32 @@ export class CarEditComponent implements OnInit {
         };
       
       this.beacons = res.data.beacon;
-      this.beacons.unshift(de_car);
-      console.log('aaa');
-        console.log(this.beacons);
+      this.beacons.sort(function(x, y){
+        return x['name'].localeCompare(y['name']);
+      });
+
+      this.carService.list(this.dealerId, 0, 10000)
+      .then((res:any)=>{
+        this.cars = res.data.car;
+        for(let i = 0 ; i < this.cars.length ; i++){
+          for(let j = 0 ; j < this.beacons.length ; j++){
+            if(this.cars[i].id != this.carId && this.cars[i].beacon_id == this.beacons[j].id){
+              this.beacons.splice( j, 1 );
+              break;
+            }
+          }
+        }
+
+      }).catch((err:any)=>{
+        UIkit.notification({
+          message: this.translate.instant('Cannot load Car'),
+          status: 'warning',
+          timeout: 1000
+        });
+        this.loading = false;
+      });
+
+  
     })
     .catch((err:any)=>{
       UIkit.notification({
@@ -70,12 +95,14 @@ export class CarEditComponent implements OnInit {
         timeout: 1000
       });
     });
+
     this.carService.get(this.carId).then((res:any)=>{
       this.car = res.data.car;
       this.car.beacon_name = res.data.car.beacon.name;
       this.car.beacon = [];
       this.car.timeline = [];
       this.loading=false;
+      this.car.username=localStorage.getItem('userName');
     }).catch((err:any)=>{
       this.loading=false;
       UIkit.notification({

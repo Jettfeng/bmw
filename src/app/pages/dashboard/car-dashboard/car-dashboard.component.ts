@@ -33,7 +33,7 @@ export class CarDashboardComponent implements OnInit, OnDestroy {
   // secondsCounter = interval(5000);
 
   interval = setInterval(() => {
-    this.refreshCar()
+   this.refreshCar()
   }, 5000);
   
   constructor(private router : Router, private activeRoute : ActivatedRoute, private dashboardService: DashboardService, private translate: TranslateService) { 
@@ -59,21 +59,22 @@ export class CarDashboardComponent implements OnInit, OnDestroy {
           /// find current station
           if(item.dashboard[0].station_id != 0){
             item.currentStation = item.dashboard[0].station.name;
+            /// find current station time
+            if(item.dashboard[0].def_time == 0){
+              let currenttime = new Date(res.data.time.replace(/-/g,'/')).getTime(); 
+              let recivetime = new Date(item.dashboard[0].arrival_at.replace(/-/g,'/')).getTime() ; 
+              item.stationTime = Math.floor((currenttime- recivetime)/60000);
+            }else{
+              item.stationTime = item.dashboard[0].def_time;
+            }
           }else{
             item.currentStation = "-";
-          }
-          
-          /// find current station time
-          item.stationTime = 0;
-          item.dashboard.forEach(element => {
-            if(item.dashboard[0].station_id == element.station_id){
-              item.stationTime += element.def_time;
-            }
-          });
+            item.stationTime = 0;
+          }          
 
          /// find current total time
-          let maxStationTime = new Date(res.data.time).getTime(); 
-          let registerTime = new Date(item.dashboard[item.dashboard.length-1].arrival_at).getTime() ; 
+          let maxStationTime = new Date(res.data.time.replace(/-/g,'/')).getTime(); 
+          let registerTime = new Date(item.dashboard[item.dashboard.length-1].arrival_at.replace(/-/g,'/')).getTime() ; 
           item.totalTime = Math.floor((maxStationTime- registerTime)/60000);
 
           /// find status notificaiton
@@ -111,21 +112,23 @@ export class CarDashboardComponent implements OnInit, OnDestroy {
           /// find current station
           if(item.dashboard[0].station_id != 0){
             item.currentStation = item.dashboard[0].station.name;
+            /// find current station time
+            if(item.dashboard[0].def_time == 0){
+              let currenttime = new Date(res.data.time.replace(/-/g,'/')).getTime(); 
+              let recivetime = new Date(item.dashboard[0].arrival_at.replace(/-/g,'/')).getTime() ; 
+              item.stationTime = Math.floor((currenttime- recivetime)/60000);
+            }else{
+              item.stationTime = item.dashboard[0].def_time;
+            }
+
           }else{
             item.currentStation = "-";
+            item.stationTime = 0;
           }
           
-          /// find current station time
-          item.stationTime = 0;
-          item.dashboard.forEach(element => {
-            if(item.dashboard[0].station_id == element.station_id){
-              item.stationTime += element.def_time;
-            }
-          });
-
          /// find current total time
-          let maxStationTime = new Date(res.data.time).getTime(); 
-          let registerTime = new Date(item.dashboard[item.dashboard.length-1].arrival_at).getTime() ; 
+          let maxStationTime = new Date(res.data.time.replace(/-/g,'/')).getTime(); 
+          let registerTime = new Date(item.dashboard[item.dashboard.length-1].arrival_at.replace(/-/g,'/')).getTime() ; 
           item.totalTime = Math.floor((maxStationTime- registerTime)/60000);
 
           /// find status notificaiton

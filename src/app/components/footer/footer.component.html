@@ -63,21 +63,21 @@
 
 <ul class="footer-bottom" *ngIf="role.service_agent" >
     <li>
-      <a class="uk-text-emphasis" href="javascript:void(0)" (click)="dashboard()">
-         <i style=" background-size:contain; background-repeat: no-repeat; background-position: center center; "  data-src="assets/images/dash.png" uk-img ></i>
-        <span class="uk-text-small">{{'dashboard'|translate}}</span>
+        <a class="uk-text-emphasis" href="javascript:void(0)" (click)="carManagement()">
+          <i style=" background-size:contain; background-repeat: no-repeat; background-position: center center;width:18px; " data-src="assets/images/car.png" uk-img ></i>   
+          <span style="font-size:10px;">{{'car'|translate}}</span>
       </a>
     </li>
     <li>
-      <a class="uk-text-emphasis" href="javascript:void(0)" (click)="carManagement()">
-        <i style=" background-size:contain; background-repeat: no-repeat; background-position: center center; " data-src="assets/images/car.png" uk-img ></i>   
-        <span class="uk-text-small">{{'car'|translate}}</span>
-    </a>
-  </li>
+      <a class="uk-text-emphasis" href="javascript:void(0)" (click)="dashboard()">
+         <i style=" background-size:contain; background-repeat: no-repeat; background-position: center center;width:20px; "  data-src="assets/images/dash.png" uk-img ></i>
+        <span  style="font-size:10px;">{{'dashboard'|translate}}</span>
+      </a>
+    </li>
     <li>
       <a class="uk-text-emphasis" href="javascript:void(0)" (click)="profileManagement()">
-        <i style=" background-size:contain; background-repeat: no-repeat; background-position: center center; " data-src="assets/images/proli.png" uk-img ></i>  
-        <span class="uk-text-small">{{'profile'|translate}}</span>
+        <i style=" background-size:contain; background-repeat: no-repeat; background-position: center center;width:15px; " data-src="assets/images/proli.png" uk-img ></i>  
+        <span style="font-size:10px;">{{'profile'|translate}}</span>
       </a>
     </li>
 </ul>

@@ -44,7 +44,6 @@ export class CarListComponent implements OnInit {
     id:'',
     title:'',
     beaconName: '',
-  
     form:{
       beaconId:'',
     }
@@ -61,17 +60,18 @@ export class CarListComponent implements OnInit {
 
   loadCar(){
     this.loading = true;
-    this.carService.beaconlist(this.dealerId,0,1000)
-      .then((res:any)=>{
-        this.beacons = res.data.beacon;
-      })
-      .catch((err:any)=>{
-        UIkit.notification({
-          message: this.translate.instant('Cannot load Beacon'),
-          status: 'warning',
-          timeout: 1000
-        });
-      });
+
+//    this.carService.beaconlist(this.dealerId,0,1000)
+//      .then((res:any)=>{
+//        this.beacons = res.data.beacon;
+//      })
+//      .catch((err:any)=>{
+//        UIkit.notification({
+//          message: this.translate.instant('Cannot load Beacon'),
+//          status: 'warning',
+//          timeout: 1000
+//        });
+//      });
 
     this.carService.list(this.dealerId, (this.pageController.pageIndex - 1) * this.pageController.itemPerPage, this.pageController.itemPerPage)
       .then((res:any)=>{
@@ -92,6 +92,7 @@ export class CarListComponent implements OnInit {
           }
         }
         this.cars = res.data.car;
+     
         this.loading = false;
 
       }).catch((err:any)=>{
@@ -148,12 +149,13 @@ export class CarListComponent implements OnInit {
   }
 
   deregister(){
-    if(this.modalDeregister.form.beaconId ==  this.modalDeregister.beaconName){
+    if(this.modalDeregister.id!='' ){
       this.loading = true;
       this.carService.deregister(this.modalDeregister.id).then((res:any)=>{
         UIkit.modal('#modal-deregister').hide();
         this.loading = false;
         this.loadCar();
+        this.modalDeregister.id='';
       }).catch((err:any)=>{
         UIkit.modal('#modal-deregister').hide();
         this.loading = false;

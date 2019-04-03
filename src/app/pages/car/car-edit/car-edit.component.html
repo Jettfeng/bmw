@@ -1,34 +1,66 @@
-<div class="uk-container register-wrap" style="padding-top:1.5em;"  >
-        <div class="uk-margin-top" uk-grid>
-          <div class="uk-width-1-3 uk-text-center uk-text-emphasis"  (click)="cancelCar()">{{'cancel'|translate}}</div>
-          
-          <div class="uk-width-1-3"></div>
-          <div class="uk-width-1-3 uk-text-center">
-            <button class="uk-button-primary save-btn" (click)="editCar()">{{'save'|translate}}</button>
-          </div>
-       
-        </div>
-        <div
-          class="uk-width-1-1 register-padding uk-text-emphasis uk-margin-large-top uk-text-large"
-        >
+<div uk-sticky>
+    <nav class="uk-navbar-container" style="height:50pt" uk-navbar>
+        <div class="uk-navbar-left uk-margin-left">
+        <button class="uk-button-text" (click)="cancelCar()">{{'cancel'|translate}}</button>
+    </div>
+    <div class="uk-navbar-center">
         {{'edit'|translate}} {{'car'|translate}} 
+    </div>
+    <div class="uk-navbar-right uk-margin-right">
+        <button class="uk-button-text uk-text-primary" (click)="editCar()">{{'save'|translate}}</button>
+    </div>
+  </nav>
+</div>
+
+<div>
+<ul class="uk-list uk-list-divider" style="background-color: white;">
+    <li class="uk-margin-remove uk-padding-remove">
+        <div class="uk-grid-collapse" uk-grid>
+            <div class="uk-width-2-5 uk-padding-small">* {{'license plate'|translate}}</div>
+            <div class="uk-width-3-5 uk-padding-small uk-text-muted uk-text-right">
+                <input class="uk-search-input uk-text-emphasis" type="text" name="licensePlate" id="licensePlate" type="text" [(ngModel)]="car.license_plate" placeholder="{{'license plate'|translate}}" />
+            </div>
         </div>
-        <div class="uk-margin-top" uk-grid>
-          <div class="uk-width-1-2 uk-padding-right">
-            <input class="uk-search-input grayBg input-padding-left uk-text-emphasis" type="text" name="licensePlate" id="licensePlate" type="text" [(ngModel)]="car.license_plate" placeholder="*{{'license plate'|translate}}" />
-          </div>
-          
-          <div class="uk-form-controls uk-width-1-2">
-            
-            <select  class="uk-select uk-form-small grayBg uk-text-emphasis" id="beacon" name="beacon"  [(ngModel)]="car.beacon_name"  >
-                <option class="uk-form-small grayBg uk-text-emphasis" *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
-            </select>
-          </div>
-           
+    </li>
+    <!--
+    <li class="uk-margin-remove uk-padding-remove">
+        <div class="uk-grid-collapse" uk-grid>
+            <div class="uk-width-1-3 uk-padding-small">* {{'brand'|translate}}</div>
+            <div class="uk-width-2-3 uk-padding-small uk-text-muted uk-text-right">
+                <input class="uk-search-input uk-text-emphasis" type="text" name="brand" id="brand" type="text" [(ngModel)]="car.brand" placeholder="{{'Enter the brand'|translate}}" />
+            </div>
         </div>
-       
-      </div>
-      
+    </li>
+    <li class="uk-margin-remove uk-padding-remove">
+        <div class="uk-grid-collapse" uk-grid>
+            <div class="uk-width-1-3 uk-padding-small">* {{'model'|translate}}</div>
+            <div class="uk-width-2-3 uk-padding-small uk-text-muted uk-text-right">
+                <input class="uk-search-input uk-text-emphasis" type="text" name="model" id="model" type="text" [(ngModel)]="car.model" placeholder="{{'Enter the model'|translate}}" />
+            </div>
+        </div>
+    </li>
+    <li class="uk-margin-remove uk-padding-remove">
+        <div class="uk-grid-collapse" uk-grid>
+            <div class="uk-width-1-3 uk-padding-small">* {{'color'|translate}}</div>
+            <div class="uk-width-2-3 uk-padding-small uk-text-muted uk-text-right">
+                <input class="uk-search-input uk-text-emphasis" type="text" name="color" id="color" type="text" [(ngModel)]="car.color" placeholder="{{'Enter the color'|translate}}" />
+            </div>
+        </div>
+    </li>
+    -->
+    <li class="uk-margin-remove uk-padding-remove">
+        <div class="uk-grid-collapse" uk-grid>
+            <div class="uk-width-2-5 uk-padding-small">* {{'beacon'|translate}}</div>
+            <div class="uk-width-3-5 uk-padding-small">
+                <select  class="uk-select uk-form-small" id="beacon" name="beacon"  [(ngModel)]="car.beacon_name" >
+                    <option class="uk-form-small " *ngFor="let beacon of beacons" value="{{beacon.name}}">{{beacon.name}}</option>
+                </select>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>
+
       <app-confirm-modal
         [elementId]="confirmModal.elementId"
         [detail]="confirmModal.detail"

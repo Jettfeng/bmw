@@ -29,7 +29,7 @@
     "total": "Total",
     "current": "Current",
     "timeline": "Timeline",
-    "minutes": "Minutes",
+    "minutes": " Min",
     "time": "time",
     "time in station": "Time in station",
     "total time from arrival": "Total time from arrival",
@@ -58,6 +58,8 @@
     "car": "Car",
     "blenode":"BLENode",
     "license plate": "License plate",
+    "license":"license",
+    "plate":"plate",
     "station": "Station",
     "stations": "Stations",
     "summary": "Summary",
@@ -113,6 +115,8 @@
     "user list": "User list",
     "user create": "User create",
     "user edit": "User edit",
+
+    "no data":"No Data",
 
     "Minute": "Minute",
     "BLENode Low Battery": "BLENode Low Battery",
@@ -188,6 +192,11 @@
     "New Password":"New Password",
     "Enter New Password":"Enter New Password",
     "Reply Password":"Reply Password",
+    "Enter the brand":"Enter the brand",
+    "Enter the model":"Enter the model",
+    "Enter the color":"Enter the color",
+    "Register time":"Register time",
+
     "en": "English",
     "zh": "简体中文"
     

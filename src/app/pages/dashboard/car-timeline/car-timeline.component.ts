@@ -19,7 +19,7 @@ export class CarTimelineComponent implements OnInit {
     brand: '',
     model:'',
     color: '',
-    status:[],
+    status:'',
     timeline:[],
   };
   role = {
@@ -47,7 +47,13 @@ export class CarTimelineComponent implements OnInit {
       let tmpTimeline = res.data.car[0].dashboard;
       tmpTimeline.forEach((cartime:any) => {
         ///calcurate time
-       cartime.stationTime = cartime.def_time;
+        if(cartime.def_time == 0){
+          let currenttime = new Date(res.data.time).getTime(); 
+          let recivetime = new Date(cartime.arrival_at).getTime() ; 
+          cartime.stationTime = Math.floor((currenttime- recivetime)/60000);
+        }else{
+          cartime.stationTime = cartime.def_time;
+        }
 
         /// find station status
         cartime.status = "";
@@ -70,7 +76,7 @@ export class CarTimelineComponent implements OnInit {
           tmpStatus.push(noti.dealer_notification.name);
         }
       });
-      this.car.status = tmpStatus;
+      this.car.status =res.data.car[0].status;//tmpStatus;
       this.loading = false;
     }).catch((err:any)=>{
       UIkit.notification({

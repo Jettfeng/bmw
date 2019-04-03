@@ -63,6 +63,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   loadProfile(){
+    this.loading = true;
     this.profileService.get(this.userId).then((res:any)=>{
       this.user = res.data.user;
       
@@ -84,6 +85,7 @@ export class ProfileEditComponent implements OnInit {
        break;
       }
       console.log(this.user);
+      this.loading = false;
     }).catch((err:any)=>{
       UIkit.notification({
         message: this.translate.instant('Cannot load Profile'),

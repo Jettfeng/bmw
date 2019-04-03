@@ -1,50 +1,53 @@
-<div class="uk-container container-style">
-  <div class="uk-padding-small uk-text-emphasis">Data</div>
-  <div>&nbsp;</div>
+<div uk-sticky>
+  <nav class="uk-navbar-container" style="height:50pt" uk-navbar>
+    <div class="uk-navbar-left">
+    </div>
+    <div class="uk-navbar-center">
+      {{"data" | translate}}
+    </div>
+    <div class="uk-navbar-right">
+    </div>
+  </nav>
+</div>
+
+
+<div class="uk-container">
   <!-- 上面的表格 ----start-->
-  <div class="uk-container uk-padding grid-container-style">
-    <div uk-grid class="grid-style">
-      <div class="uk-width-1-3 uk-padding-remove uk-text-emphasis">
+  <div class="uk-card uk-card-default uk-cad-body uk-margin-top uk-margin-bottom uk-padding-small">
+    <div uk-grid>
+      <div class="uk-width-1-3">
         {{ "start date" | translate }}
       </div>
-      <div class="uk-width-1-3 uk-padding-remove">
         <input
+        class="uk-width-2-3"
           type="date"
           value="2019-01-01"
           name="start_date"
           id="start_date"
           [(ngModel)]="filter.start_date"
         />
-      </div>
-      <div class="uk-width-1-3 uk-padding-remove"></div>
     </div>
-    <div uk-grid class="grid-style uk-margin-top">
-      <div class="uk-width-1-3 uk-padding-remove uk-text-emphasis">
+    <div uk-grid>
+      <div class="uk-width-1-3">
         {{ "end date" | translate }}
       </div>
-      <div class="uk-width-1-3 uk-padding-remove">
         <input
+        class="uk-width-2-3"
           type="date"
           name="end_date"
           id="end_date"
           [(ngModel)]="filter.end_date"
         />
-      </div>
-      <div class="uk-width-1-3 uk-padding-remove">
-        <button
-          class="uk-button uk-button-small btn-style-data"
-          (click)="onClickFilter()"
-        >
-          {{ "apply" | translate }}
-        </button>
-      </div>
     </div>
+
+      <button class="uk-button uk-margin-top uk-width-1-1" (click)="onClickFilter()" >
+        {{ "apply" | translate }}
+      </button>
+
   </div>
 
   <!-- 上面的表格 ----end-->
-  <div
-    class="bottom-main-style uk-margin-large-top uk-padding-small uk-padding-remove-top uk-padding-remove-left uk-padding-remove-right"
-  >
+  <div class="uk-margin-xlarge-bottom">
     <div class="uk-overflow-auto">
       <table class="uk-table uk-table-striped uk-table-small">
         <thead>
@@ -52,7 +55,7 @@
             <th rowspan="2" class="date-style uk-text-emphasis">
               {{ "date" | translate }}
             </th>
-            <th colspan="4" class="uk-text-emphasis white-bg">
+            <th colspan="1" class="uk-text-emphasis white-bg">
               {{ "car" | translate }} {{ "detail" | translate }}
             </th>
             <th colspan="4" class="uk-text-emphasis white-bg uk-text-bold">
@@ -70,6 +73,7 @@
             <th class="uk-text-nowrap uk-text-emphasis">
               {{ "license plate" | translate }}
             </th>
+            <!--
             <th class="uk-text-nowrap uk-text-emphasis">
               {{ "brand" | translate }}
             </th>
@@ -79,6 +83,7 @@
             <th class="uk-text-nowrap uk-text-emphasis">
               {{ "color" | translate }}
             </th>
+            -->
             <th class="uk-text-nowrap uk-text-emphasis">
               {{ "arrival" | translate }} {{ "time" | translate }}
             </th>
@@ -115,9 +120,12 @@
             <td class="uk-text-nowrap uk-text-emphasis">
               {{ data.license_plate }}
             </td>
+            <!--
             <td class="uk-text-nowrap uk-text-emphasis">{{ data.brand }}</td>
             <td class="uk-text-nowrap uk-text-emphasis">{{ data.model }}</td>
             <td class="uk-text-nowrap uk-text-emphasis">{{ data.color }}</td>
+            -->
+
             <ng-container>
               <td class="uk-text-nowrap uk-text-emphasis">
                 {{ data.dashboard[0].min_time }}
@@ -164,35 +172,25 @@
         </tbody>
       </table>
     </div>
-    <div class="uk-margin">
-      <ul class="uk-pagination uk-flex-center" uk-margin>
-        <li *ngIf="pageController.pageIndex != 1">
-          <a (click)="changePageonClick(false, -1)">
+
+    <div class="uk-padding-small uk-margin-remove" uk-grid *ngIf="pageController.pageNumber > 1">
+
+      <div class="uk-width-1-3 uk-padding-remove">
+        <button class="uk-button" *ngIf="pageController.pageIndex != 1" (click)="changePageonClick(false, -1)">
             <span uk-pagination-previous></span>
-          </a>
-        </li>
-        <li *ngIf="pageController.pageIndex > 4" class="uk-disabled">
-          <span>...</span>
-        </li>
-        <li
-          *ngFor="let index of pageController.pageArray"
-          [class.uk-active]="index == pageController.pageIndex"
-        >
-          <a (click)="changePageonClick(true, index)">{{ index }}</a>
-        </li>
-        <li
-          *ngIf="pageController.pageNumber - pageController.pageIndex > 3"
-          class="uk-disabled"
-        >
-          <span>...</span>
-        </li>
-        <li *ngIf="pageController.pageIndex != pageController.pageNumber">
-          <a (click)="changePageonClick(false, 1)">
+          </button>
+      </div>
+      <div class="uk-width-1-3 uk-padding-remove uk-text-center" style="line-height:38px;">
+          <span class="uk-text-primary">{{pageController.pageIndex}}</span>/{{pageController.pageNumber}}
+      </div>
+      <div class="uk-width-1-3 uk-padding-remove uk-text-right">
+        <button class="uk-button" *ngIf="pageController.pageIndex != pageController.pageNumber" (click)="changePageonClick(false, 1)">
             <span uk-pagination-next></span>
-          </a>
-        </li>
-      </ul>
+          </button>
+      </div>
+
     </div>
+
   </div>
 </div>
 

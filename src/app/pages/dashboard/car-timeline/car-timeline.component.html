@@ -1,109 +1,73 @@
-<div class="timelinewrap" style="padding-top:1.5em;"  >
-  <div class="uk-padding-small uk-padding-remove-bottom">
-    <span class="uk-margin-small-right uk-icon" uk-icon="chevron-left" (click)="cancelTime()"
-      ><svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        data-svg="chevron-left"
-      ></svg></span>
+<div uk-sticky>
+  <nav class="uk-navbar-container" style="height:50pt" uk-navbar>
+    <div class="uk-navbar-left uk-margin-left">
+          <button class="uk-button-text" (click)="cancelTime()"><span uk-icon="icon: chevron-left"></span></button>
+      </div>
+      <div class="uk-navbar-center">
+          {{'timeline'|translate}}
+      </div>
+      <div class="uk-navbar-right uk-margin-right">
+      </div>
+    </nav>
+</div>
+
+<div style="background-color: white">
+  
+  <div class="uk-card uk-card-body">
+    <dl class="uk-description-list uk-margin-remove-top dl-style">
+      <dt class="uk-margin-small-bottom"> <span class="uk-text-capitalize">{{'license'|translate}} </span> <span class="uk-text-lowercase">{{'plate'|translate}}</span>：<span *ngIf="car.license_plate" class=" uk-text-capitalize">{{car.license_plate}}</span></dt>
+      <dd class="uk-margin-small-bottom uk-text-capitalize">{{'status'|translate}}：<span *ngIf="car.status">{{car.status}}</span> </dd>
+      <!--
+      <dd class="uk-margin-small-bottom">{{'brand'|translate}}：<span *ngIf="car.brand">{{car.brand}}</span></dd>
+      <dd class="uk-margin-small-bottom">{{'model'|translate}}：<span *ngIf="car.model">{{car.model}}</span></dd>
+      <dd class="uk-margin-small-bottom">{{'color'|translate}}：<span *ngIf="car.color">{{car.color}}</span></dd>
+      -->
+    </dl>
   </div>
-  <div class="uk-text-emphasis timeline-samll-font uk-padding uk-text-large">{{'timeline'|translate}}</div>
-  <div class="uk-container uk-padding-small uk-padding-remove-top uk-padding-remove-bottom">
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-padding-small topcontainer">
-      <button class="uk-button uk-button-default uk-button-small btn-style uk-margin-small-bottom">Information</button>
-      <dl class="uk-description-list uk-margin-remove-top dl-style">
-        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'status'|translate}}</dt>
-        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngFor="let status of car.status"  > {{status}}</dd>
-        <dd class="uk-text-emphasis uk-margin-small-bottom">{{'license plate'|translate}}</dd>
-        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.license_plate" >{{car.license_plate}}</dd>
-        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'brand'|translate}}</dt>
-        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.brand" >{{car.brand}}</dd>
-        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'model'|translate}}</dt>
-        <dd class="uk-text-emphasis uk-margin-small-bottom" *ngIf="car.model" >{{car.model}}</dd>
-        <dt class="uk-text-emphasis uk-margin-small-bottom">{{'color'|translate}}</dt>
-        <dd class="uk-text-emphasis  "   *ngIf="car.color">{{car.color}}</dd>
-      </dl>
+
+  <hr>
+  <div class="uk-grid-collapse" uk-grid>
+      <div class="uk-width-auto uk-padding-small uk-margin-top"><span class="uk-badge">1</span></div>
+      <div class="uk-width-expand uk-padding-small">
+        <p class="uk-text-large uk-margin-remove uk-text-bold">{{"Register"|translate}}</p>
+        <div class="uk-text-meta uk-grid-collapse uk-margin-small" uk-grid>
+          <div class="uk-width-auto">{{'Register time'|translate}}</div>
+          <div class="uk-width-expand uk-text-right"> {{car.created_at}}</div>
+        </div>
     </div>
   </div>
 
-   
-
-  <div class="uk-text-emphasis timeline-samll-font uk-padding uk-text-large">{{'timeline'|translate}}</div>
-  <div class="uk-container uk-padding-small uk-padding-remove-top uk-padding-remove-bottom">
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-padding-small bottomcontainer">
-      <table class="uk-table uk-table-middle uk-table-divider table-style thead-style uk-table-middle uk-margin-remove-top">
-        <thead class="thead-style">
-          <tr>
-            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'station'|translate}}</th>
-            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center"> {{'arrival time'|translate}}</th>
-            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'departure time'|translate}}</th>
-            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'used time'|translate}} <br/> ({{'minutes'|translate}})</th>
-            <th class="uk-text-small small-font uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">{{'status'|translate}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <tr *ngFor="let timeline of car.timeline">
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Station</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center"> Arrival</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Departure</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Use time</th>
-            <th class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">Status</th>
-         
-          </tr> -->
-          <tr *ngFor="let timeline of car.timeline" >
-            <ng-container *ngIf="timeline.station_id != 0">
-              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                {{timeline.station.name}}
-              </td>
-              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                {{timeline.arrival_at}}
-              </td>
-              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                {{timeline.departure_at}}
-              </td>
-              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                {{timeline.stationTime}}
-              </td>
-              <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                <div *ngIf="timeline.status != ''">
-                  <button class="uk-button uk-button-danger uk-button-small" style="width: 100px;">
+  <div class="uk-width-1-1" *ngFor="let timeline of car.timeline; let i = index">
+      <ng-container *ngIf="timeline.station_id != 0">
+        <hr>
+        <div class="uk-grid-collapse" uk-grid>
+            <div class="uk-width-auto uk-padding-small uk-margin-top"><span class="uk-badge">{{ i+2 }}</span></div>
+            <div class="uk-width-expand uk-padding-small">
+              <p class="uk-text-large uk-margin-remove uk-text-bold">{{timeline.station.name}} 
+                <span class="uk-label uk-label-danger" *ngIf="timeline.status != ''">
                     {{timeline.status}}
-                  </button>
-                </div>
-                <div *ngIf="timeline.status == ''">
+                </span>
+                <span class="uk-label uk-label-success" *ngIf="timeline.status == ''">
                     OK
-                </div>
-              </td>
-            </ng-container>
-            
-            <ng-container *ngIf="timeline.station_id == 0">
-                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                  {{"Register"|translate}}
-                </td>
-                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                  {{timeline.arrival_at}}
-                </td>
-                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                  -
-                </td>
-                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                  -
-                </td>
-                <td class="uk-text-small uk-text-emphasis uk-width-1-3 uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-text-center">
-                  -
-                </td>
-              </ng-container>
-          </tr>
-
-
-
-
-        </tbody>
-      </table>
-    </div>
+                </span>
+              </p>
+              <div class="uk-text-meta uk-grid-collapse uk-margin-small" uk-grid>
+                <div class="uk-width-auto">{{'arrival time'|translate}}</div>
+                <div class="uk-width-expand uk-text-right"> {{timeline.arrival_at}}</div>
+              </div>
+              <div class="uk-text-meta uk-grid-collapse uk-margin-small" uk-grid>
+                <div class="uk-width-auto">{{'departure time'|translate}}:</div>
+                <div class="uk-width-expand uk-text-right"> {{timeline.departure_at}}</div>
+              </div>
+              <div class="uk-text-meta uk-grid-collapse uk-margin-small" uk-grid>
+                <div class="uk-width-auto">{{'used time'|translate}}:</div>
+                <div class="uk-width-expand uk-text-right"> {{timeline.stationTime}}{{ "minutes" | translate }}</div>
+              </div>
+          </div>
+        </div>
+      </ng-container>
   </div>
+
 </div>
 
 <!-- <div *ngIf="role.service_agent" >

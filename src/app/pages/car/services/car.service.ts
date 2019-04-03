@@ -50,8 +50,8 @@ export class CarService {
         dealer_id: dealer_id,
         limit: limit,
         offset: offset,
-        direct_sort:"acs",
-        title_sort:"license_plate"
+        direct_sort:"desc",
+        title_sort:"car.created_at"
       };
       this.http.post(apiURL,params,httpOptions)
         .toPromise()
@@ -151,6 +151,7 @@ export class CarService {
       };
       let params  = {
         id: car_id,
+        username:localStorage.getItem('userName')
       };
       this.http.post(apiURL,params,httpOptions)
         .toPromise()

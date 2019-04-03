@@ -18,15 +18,17 @@ export class CarRegisterComponent implements OnInit {
   }
   dealerId = '';
   loading = false;
-   def_beacon_name='*'+this.translate.instant("Select Beacon");
+   def_beacon_name=this.translate.instant("Select Beacon");
   beacons = [];
+  cars = [];
   car = {
     license_plate:'',
     brand:'',
     model:'',
     color:'',
-    beacon_name:('*'+this.translate.instant("Select Beacon")),
-    dealer_id: ','
+    beacon_name:(this.translate.instant("Select Beacon")),
+    dealer_id: ',',
+    username:''
   };
 
   constructor(private router : Router, private activeRoute : ActivatedRoute, private carService: CarService, private translate: TranslateService) { 
@@ -49,9 +51,37 @@ export class CarRegisterComponent implements OnInit {
         
         this.beacons = res.data.beacon;
         this.beacons.unshift(de_car);
+        this.beacons.sort(function(x, y){
+          return x['name'].localeCompare(y['name']);
+        });
+  
+        this.car.username=localStorage.getItem('userName');
      //   new Object(){name:this.translate.instant("Select Beacon")
       //  this.beacons.shift(},0)//serviceagent1
-        this.loading = false;
+
+        this.carService.list(this.dealerId, 0, 10000)
+        .then((res:any)=>{
+          this.cars = res.data.car;
+          for(let i = 0 ; i < this.cars.length ; i++){
+            for(let j = 0 ; j < this.beacons.length ; j++){
+              if(this.cars[i].beacon_id == this.beacons[j].id){
+                this.beacons.splice( j, 1 );
+                break;
+              }
+            }
+          }
+          this.loading = false;
+  
+        }).catch((err:any)=>{
+          UIkit.notification({
+            message: this.translate.instant('Cannot load Car'),
+            status: 'warning',
+            timeout: 1000
+          });
+          this.loading = false;
+        });
+  
+
       })
       .catch((err:any)=>{
         UIkit.notification({

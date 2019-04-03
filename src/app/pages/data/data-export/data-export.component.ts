@@ -145,7 +145,8 @@ export class DataExportComponent implements OnInit {
 
   filterCar(){
     this.loading = true;
-    this.dataService.list(this.dealerId, this.filter, (this.pageController.pageIndex - 1) * this.pageController.itemPerPage, this.pageController.itemPerPage).then((res:any)=>{
+    this.dataService.list(this.dealerId, this.filter, (this.pageController.pageIndex - 1) * this.pageController.itemPerPage, this.pageController.itemPerPage)
+    .then((res:any)=>{
       this.pageController.itemNumber = res.data.count;
       this.pageController.pageNumber = Math.ceil(this.pageController.itemNumber / this.pageController.itemPerPage);
       this.pageController.pageArray = [];

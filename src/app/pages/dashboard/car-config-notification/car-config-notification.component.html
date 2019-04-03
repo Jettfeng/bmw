@@ -1,85 +1,43 @@
 <!-- 切片car-config-notification页面代码 内容就是下面的，数据绑定好了-->
-<div class="allwrap" style="padding-top:1.5em;"  >
-  <!-- <div class="uk-padding-large"></div> -->
-  <div class="uk-container uk-padding-small fixed-nav" style=" background:none;">
-    <div class="fixed-nav" uk-grid>
-      <div
-        class="uk-width-1-3 uk-text-center uk-text-emphasis"
-        (click)="cancel()"
-      >
-        {{ "Cancel" | translate }}
-      </div>
-      <!-- <div class="uk-width-1-4"></div> -->
-      <div class="uk-width-1-3"></div>
-      <div class="uk-width-1-3 uk-text-center">
-        <button class="uk-button-primary save-btn" (click)="save()">
-          {{ "Save" | translate }}
-        </button>
-      </div>
+<div uk-sticky>
+  <nav class="uk-navbar-container" style="height:50pt;" uk-navbar>
+    <div class="uk-navbar-left uk-margin-left">
+        <button class="uk-button-text" (click)="cancel()">{{'cancel'|translate}}</button>
     </div>
-    <!-- <button class="uk-button uk-button-primary  uk-margin-small-right" (click)="cancel()">{{'Cancel'|translate}}</button>
-    <button class="uk-button uk-button-primary" (click)="save()">{{'Save'|translate}}</button> -->
-  </div>
-  <div class="maincon">
-    <div class="uk-container uk-padding" style=" background:none;font-size: 16px;">
-        {{ "Configure" | translate }} {{ "notification" | translate }}
-        {{ "condition" | translate }}
-      <!-- <nav
-        class="uk-navbar-container uk-margin"
-        uk-navbar
-        style=" background:none;"
-      >
-        <div class="uk-navbar-left .uk-padding"> -->
-            <!-- {{ "Configure" | translate }} {{ "notification" | translate }}
-            {{ "condition" | translate }} -->
-          <!-- <a class="uk-navbar-item uk-logo config-font uk-padding-remove-left uk-padding-remove-right"
-            >{{ "Configure" | translate }} {{ "notification" | translate }}
-            {{ "condition" | translate }}</a
-          > -->
-        <!-- </div>
-      </nav> -->
+    <div class="uk-navbar-center">
+        {{ "Configure" | translate }} {{ "notification" | translate }} {{ "condition" | translate }}
     </div>
-    <div class="uk-container  uk-padding uk-padding-remove-top">
-      <form
-        class="uk-form-stacked uk-margin-top uk-padding-small uk-margin-remove-top shadow"
-        style=" background-color: #fff; box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.08);"
-      >
-        <div class="uk-margin" *ngFor="let dealer of form.dealer_noti_config">
-          <label class="uk-form-label" for="{{ dealer.name }}"
-            >{{ dealer.name }} ({{ dealer.unit }})</label
-          >
-          <div class="uk-form-controls">
-            <input
-              class="uk-input uk-form-small"
-              id="{{ dealer.name }}"
-              name="{{ dealer.name }}"
-              type="number"
-              placeholder=""
-              [(ngModel)]="dealer.value"
-            />
-          </div>
-        </div>
+    <div class="uk-navbar-right uk-margin-right">
+        <button class="uk-button-text uk-text-primary" (click)="save()">{{'save'|translate}}</button>
+    </div>
+  </nav>
+</div>
 
-        <div class="uk-margin" *ngFor="let station of form.station_noti_config">
-          <label class="uk-form-label" for="{{ station.name }}"
-            >{{ station.name }} {{ station.station.name }} ({{
-              station.unit
-            }})</label
-          >
-          <div class="uk-form-controls">
-            <input
-              class="uk-input uk-form-small"
-              id="{{ station.name }}"
-              name="{{ station.name }}"
-              type="number"
-              placeholder=""
-              [(ngModel)]="station.value"
-            />
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+<div>
+  <ul class="uk-list uk-list-divider" style="background-color: white;">
+      <li class="uk-padding-small" *ngFor="let dealer of form.dealer_noti_config">
+          <label class="uk-form-label" for="{{ dealer.name }}">{{ dealer.name }} ({{ dealer.unit }})</label>
+          <input
+            class="uk-input uk-form-small"
+            id="{{ dealer.name }}"
+            name="{{ dealer.name }}"
+            type="number"
+            placeholder=""
+            [(ngModel)]="dealer.value"
+          />
+      </li>
+      <li class="uk-padding-small" *ngFor="let station of form.station_noti_config">
+          <label class="uk-form-label" for="{{ station.name }}">{{ station.name }} {{ station.station.name }} ({{station.unit}})</label>
+          <input
+            class="uk-input uk-form-small"
+            id="{{ station.name }}"
+            name="{{ station.name }}"
+            type="number"
+            placeholder=""
+            [(ngModel)]="station.value"
+          />
+    </li>
+  </ul>
 </div>
 
 <app-confirm-modal
